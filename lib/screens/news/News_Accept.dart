@@ -1,17 +1,18 @@
 import 'package:fe_football_admin/main.dart';
-import 'package:fe_football_admin/screens/news/News_Accept.dart';
+import 'package:fe_football_admin/screens/news/News.dart';
 import 'package:fe_football_admin/widget/customer/item_list_customer.dart';
 import 'package:fe_football_admin/widget/customer/nav_customer/nav_top_list_customer.dart';
 import 'package:fe_football_admin/widget/dashboard_widget/manager_centerNav.dart';
 import 'package:fe_football_admin/widget/dashboard_widget/total_value.dart';
 import 'package:fe_football_admin/widget/navigation/nav_leftBar.dart';
 import 'package:fe_football_admin/widget/news/item_list_news.dart';
+import 'package:fe_football_admin/widget/news/item_list_news_wait.dart';
 import 'package:fe_football_admin/widget/news/nav_news/nav_top_list_news.dart';
 import 'package:fe_football_admin/widget/team/item_list_team.dart';
 import 'package:fe_football_admin/widget/team/nav_customer/nav_top_list_team.dart';
 import 'package:flutter/material.dart';
 
-class NewsView extends StatelessWidget {
+class NewsAcceptView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,7 +71,7 @@ class NewsView extends StatelessWidget {
                                 mainAxisSize: MainAxisSize.min,
                                 children: <Widget>[
                                   Text(
-                                    "Bài đang hiển thị",
+                                    "Bài đợi duyệt",
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 14.0,
@@ -88,7 +89,7 @@ class NewsView extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              "Danh sách bài đã đăng",
+                              "Danh sách bài chờ phê duyệt",
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 28.0,
@@ -104,7 +105,7 @@ class NewsView extends StatelessWidget {
                                 onPressed: () {
                                   Navigator.push(context,
                                       MaterialPageRoute(builder: (context) {
-                                    return new NewsAcceptView();
+                                    return new NewsView();
                                   }));
                                 },
                                 child: Padding(
@@ -115,7 +116,7 @@ class NewsView extends StatelessWidget {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          "Bài đợi duyệt",
+                                          "Bài đã duyệt",
                                           style: TextStyle(
                                               color: Colors.black,
                                               fontSize: 14,
@@ -141,7 +142,7 @@ class NewsView extends StatelessWidget {
                           height: 1,
                           width: 1250,
                         ),
-                        for (int i = 0; i < 15; i++) ItemListNews(),
+                        for (int i = 0; i < 15; i++) ItemListNewsWait(),
                       ],
                     ),
                   ),

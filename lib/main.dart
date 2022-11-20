@@ -1,6 +1,7 @@
 import 'package:fe_football_admin/screens/customer/Customer.dart';
 import 'package:fe_football_admin/screens/dashboard/Dashboard.dart';
 import 'package:fe_football_admin/screens/Login.dart';
+import 'package:fe_football_admin/screens/news/News.dart';
 import 'package:fe_football_admin/screens/stadium/Stadium.dart';
 import 'package:fe_football_admin/widget/navigation/nav_leftBar.dart';
 import 'package:flutter/material.dart';

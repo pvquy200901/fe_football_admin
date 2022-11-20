@@ -1,5 +1,6 @@
 import 'package:fe_football_admin/screens/customer/Customer.dart';
 import 'package:fe_football_admin/screens/dashboard/Dashboard.dart';
+import 'package:fe_football_admin/screens/news/News.dart';
 import 'package:fe_football_admin/screens/stadium/Stadium.dart';
 import 'package:fe_football_admin/screens/team/Team.dart';
 import 'package:fe_football_admin/widget/navigation/admin_avata_user.dart';
@@ -221,10 +222,10 @@ class LeftNavbar extends StatelessWidget {
                           borderRadius:
                               BorderRadius.all(Radius.circular(25.0))),
                       onPressed: () {
-                        // Navigator.push(context,
-                        //     MaterialPageRoute(builder: (context) {
-                        //   return new HomeView();
-                        // }));
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return new NewsView();
+                        }));
                       },
                       child: Text(
                         "Tin tức",

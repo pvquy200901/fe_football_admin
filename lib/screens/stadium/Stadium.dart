@@ -1,4 +1,5 @@
 import 'package:fe_football_admin/main.dart';
+import 'package:fe_football_admin/screens/stadium/Stadium_Create.dart';
 import 'package:fe_football_admin/widget/customer/item_list_customer.dart';
 import 'package:fe_football_admin/widget/customer/nav_customer/nav_top_list_customer.dart';
 import 'package:fe_football_admin/widget/dashboard_widget/manager_centerNav.dart';
@@ -104,16 +105,10 @@ class StadiumView extends StatelessWidget {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(26.0))),
                           onPressed: () {
-                            // showDialog(
-                            //     context: context,
-                            //     barrierDismissible: true,
-                            //     builder: (BuildContext cxt) {
-                            //       return new DetailMyOrderView();
-                            //     });
-
-                            // Navigator.push(context, MaterialPageRoute(builder: (context) {
-                            //   return new DetailMyOrderView();
-                            // }));
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return new StadiumCreateView();
+                            }));
                           },
                           child: Padding(
                             padding: const EdgeInsets.symmetric(

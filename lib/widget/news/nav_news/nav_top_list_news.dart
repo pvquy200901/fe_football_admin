@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class NavTopListTeam extends StatelessWidget {
+class NavTopListNews extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -9,23 +9,13 @@ class NavTopListTeam extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Container(
-              width: 250,
-              child: Text(
-                "Tên đội",
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 18,
-                    fontStyle: FontStyle.normal),
-              ),
-            ),
             SizedBox(
               width: 50,
             ),
             Container(
-              width: 150,
+              width: 250,
               child: Text(
-                "Số điện thoại",
+                "Tên người đăng",
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 18,
@@ -38,7 +28,7 @@ class NavTopListTeam extends StatelessWidget {
             Container(
               width: 250,
               child: Text(
-                "Email",
+                "Tiêu đề",
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 18,
@@ -51,7 +41,7 @@ class NavTopListTeam extends StatelessWidget {
             Container(
               width: 150,
               child: Text(
-                "Ngày tạo đội",
+                "Ngày đăng",
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 18,
@@ -59,7 +49,20 @@ class NavTopListTeam extends StatelessWidget {
               ),
             ),
             SizedBox(
-              width: 220,
+              width: 50,
+            ),
+            Container(
+              width: 150,
+              child: Text(
+                "Trạng thái",
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 18,
+                    fontStyle: FontStyle.normal),
+              ),
+            ),
+            SizedBox(
+              width: 305,
             ),
           ],
         ),
