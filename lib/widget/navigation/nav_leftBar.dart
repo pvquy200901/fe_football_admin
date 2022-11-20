@@ -60,6 +60,43 @@ class LeftNavbar extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: const Center(
+                        child: Icon(Icons.pending_actions, color: Colors.white),
+                      ),
+                    ),
+                    MaterialButton(
+                      shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(25.0))),
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return new DashboardView();
+                        }));
+                      },
+                      child: Text(
+                        "Bán hàng",
+                        style: TextStyle(color: Colors.white, fontSize: 14),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 55,
+                ),
+                Row(
+                  children: <Widget>[
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Container(
+                      width: 28.0,
+                      height: 28.0,
+                      alignment: Alignment.centerLeft,
+                      decoration: BoxDecoration(
+                        color: Colors.pinkAccent,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: const Center(
                         child: Icon(Icons.home, color: Colors.white),
                       ),
                     ),

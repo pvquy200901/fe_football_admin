@@ -2,6 +2,7 @@ import 'package:fe_football_admin/screens/customer/Customer.dart';
 import 'package:fe_football_admin/screens/dashboard/Dashboard.dart';
 import 'package:fe_football_admin/screens/Login.dart';
 import 'package:fe_football_admin/screens/news/News.dart';
+import 'package:fe_football_admin/screens/selling/Selling.dart';
 import 'package:fe_football_admin/screens/stadium/Stadium.dart';
 import 'package:fe_football_admin/screens/team/Team.dart';
 import 'package:fe_football_admin/widget/dashboard_widget/top_team/top_team_order_list.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "$title",
       debugShowCheckedModeBanner: false,
-      home: TeamView(),
+      home: SellingView(),
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
         textTheme: GoogleFonts.poppinsTextTheme(
