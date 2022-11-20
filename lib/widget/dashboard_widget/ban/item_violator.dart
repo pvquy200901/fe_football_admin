@@ -1,3 +1,6 @@
+import 'package:fe_football_admin/widget/dialog/dialog_confirm_ban.dart';
+import 'package:fe_football_admin/widget/dialog/dialog_detail_violators.dart';
+import 'package:fe_football_admin/widget/dialog/dialog_detail_warning.dart';
 import 'package:flutter/material.dart';
 
 import '../../team/detail_team/MyTeamInfo.dart';
@@ -16,24 +19,34 @@ class ItemViolator extends StatelessWidget {
                 "Manchester United",
                 style: TextStyle(
                     color: Colors.white,
-                    fontSize: 14,
+                    fontSize: 16,
                     fontStyle: FontStyle.normal),
               ),
+            ),
+            SizedBox(
+              width: 15,
             ),
             Container(
               child: Text(
                 "0335959666",
                 style: TextStyle(
                     color: Colors.white,
-                    fontSize: 14,
+                    fontSize: 16,
                     fontStyle: FontStyle.normal),
               ),
             ),
+            SizedBox(
+              width: 15,
+            ),
             MaterialButton(
+              color: Colors.white,
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return new MyTeamView();
-                }));
+                showDialog(
+                    context: context,
+                    barrierDismissible: true,
+                    builder: (BuildContext cxt) {
+                      return new DialogDetailViolators();
+                    });
               },
               child: Text(
                 "Chi tiết",
@@ -46,9 +59,12 @@ class ItemViolator extends StatelessWidget {
             ),
             MaterialButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return new MyTeamView();
-                }));
+                showDialog(
+                    context: context,
+                    barrierDismissible: true,
+                    builder: (BuildContext cxt) {
+                      return new DialogConfirmBan();
+                    });
               },
               child: Text(
                 "Cấm",
@@ -61,9 +77,12 @@ class ItemViolator extends StatelessWidget {
             ),
             MaterialButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return new MyTeamView();
-                }));
+                showDialog(
+                    context: context,
+                    barrierDismissible: true,
+                    builder: (BuildContext cxt) {
+                      return new DialogConfirmWarning();
+                    });
               },
               child: Text(
                 "Cảnh cáo",

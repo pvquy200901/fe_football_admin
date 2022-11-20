@@ -1,3 +1,4 @@
+import 'package:fe_football_admin/widget/dialog/dialog_team_delete.dart';
 import 'package:fe_football_admin/widget/team/detail_team/MyTeamInfo.dart';
 import 'package:flutter/material.dart';
 
@@ -67,12 +68,12 @@ class ItemListTeam extends StatelessWidget {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(26.0))),
               onPressed: () {
-                // showDialog(
-                //     context: context,
-                //     barrierDismissible: true,
-                //     builder: (BuildContext cxt) {
-                //       return new DetailMyOrderView();
-                //     });
+                showDialog(
+                    context: context,
+                    barrierDismissible: true,
+                    builder: (BuildContext cxt) {
+                      return new DialogTeamDelete();
+                    });
 
                 // Navigator.push(context, MaterialPageRoute(builder: (context) {
                 //   return new DetailMyOrderView();

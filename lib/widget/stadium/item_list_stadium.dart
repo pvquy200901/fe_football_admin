@@ -1,4 +1,5 @@
 import 'package:fe_football_admin/screens/stadium/Stadium_Edit.dart';
+import 'package:fe_football_admin/widget/dialog/dialog_stadium_delete.dart';
 import 'package:flutter/material.dart';
 
 class ItemListStadium extends StatelessWidget {
@@ -77,16 +78,12 @@ class ItemListStadium extends StatelessWidget {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(26.0))),
               onPressed: () {
-                // showDialog(
-                //     context: context,
-                //     barrierDismissible: true,
-                //     builder: (BuildContext cxt) {
-                //       return new DetailMyOrderView();
-                //     });
-
-                // Navigator.push(context, MaterialPageRoute(builder: (context) {
-                //   return new DetailMyOrderView();
-                // }));
+                showDialog(
+                    context: context,
+                    barrierDismissible: true,
+                    builder: (BuildContext cxt) {
+                      return new DialogStadiumDelete();
+                    });
               },
               child: Padding(
                 padding:

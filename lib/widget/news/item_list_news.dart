@@ -1,3 +1,4 @@
+import 'package:fe_football_admin/widget/dialog/dialog_news_delete.dart';
 import 'package:fe_football_admin/widget/news/detail/news_detail.dart';
 import 'package:flutter/material.dart';
 
@@ -64,16 +65,12 @@ class ItemListNews extends StatelessWidget {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(26.0))),
               onPressed: () {
-                // showDialog(
-                //     context: context,
-                //     barrierDismissible: true,
-                //     builder: (BuildContext cxt) {
-                //       return new DetailMyOrderView();
-                //     });
-
-                // Navigator.push(context, MaterialPageRoute(builder: (context) {
-                //   return new DetailMyOrderView();
-                // }));
+                showDialog(
+                    context: context,
+                    barrierDismissible: true,
+                    builder: (BuildContext cxt) {
+                      return new DialogNewsDelete();
+                    });
               },
               child: Padding(
                 padding:

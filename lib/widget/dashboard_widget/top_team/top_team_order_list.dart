@@ -21,7 +21,7 @@ class TopteamItem extends StatelessWidget {
                   fontFamily: 'Merriweather'),
             ),
             Container(
-              height: 2,
+              height: 1,
               width: 150,
               color: Colors.white,
             ),

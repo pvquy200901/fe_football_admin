@@ -1,5 +1,7 @@
 import 'package:fe_football_admin/main.dart';
+import 'package:fe_football_admin/widget/dashboard_widget/ban/violator_list.dart';
 import 'package:fe_football_admin/widget/dashboard_widget/manager_centerNav.dart';
+import 'package:fe_football_admin/widget/dashboard_widget/report/list_report.dart';
 import 'package:fe_football_admin/widget/dashboard_widget/top_team/top_team_order_list.dart';
 import 'package:fe_football_admin/widget/dashboard_widget/total_value.dart';
 import 'package:fe_football_admin/widget/navigation/nav_leftBar.dart';
@@ -40,12 +42,112 @@ class DashboardView extends StatelessWidget {
                       SizedBox(
                         height: 15,
                       ),
+                      Container(
+                        height: 2,
+                        width: 1200,
+                        color: Colors.white,
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Column(
+                          Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: [TopteamItem()],
+                            children: [
+                              SizedBox(
+                                width: 50,
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "Danh sách vi phạm tiêu chuẩn",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 22.0,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: 'Merriweather'),
+                                  ),
+                                  Container(
+                                    height: 1,
+                                    width: 250,
+                                    color: Colors.white,
+                                  ),
+                                  SizedBox(
+                                    height: 15,
+                                  ),
+                                  Container(
+                                    height: MediaQuery.of(context).size.height -
+                                        190,
+                                    child: SingleChildScrollView(
+                                      //You can also change the scroll direction
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [ViolatorsList()],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [TopteamItem()],
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Phản hồi",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 22.0,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: 'Merriweather'),
+                                  ),
+                                  Container(
+                                    height: 1,
+                                    width: 50,
+                                    color: Colors.white,
+                                  ),
+                                  SizedBox(
+                                    height: 15,
+                                  ),
+                                  Container(
+                                    height: MediaQuery.of(context).size.height -
+                                        190,
+                                    child: SingleChildScrollView(
+                                      //You can also change the scroll direction
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [ListReport()],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                width: 50,
+                              ),
+                            ],
                           ),
                         ],
                       ),

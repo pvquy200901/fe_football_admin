@@ -1,3 +1,5 @@
+import 'package:fe_football_admin/widget/dialog/dialog_customer_delete.dart';
+import 'package:fe_football_admin/widget/dialog/dialog_reset_pass_cus.dart';
 import 'package:flutter/material.dart';
 
 class ItemListMyCustomer extends StatelessWidget {
@@ -66,16 +68,12 @@ class ItemListMyCustomer extends StatelessWidget {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(26.0))),
               onPressed: () {
-                // showDialog(
-                //     context: context,
-                //     barrierDismissible: true,
-                //     builder: (BuildContext cxt) {
-                //       return new DetailMyOrderView();
-                //     });
-
-                // Navigator.push(context, MaterialPageRoute(builder: (context) {
-                //   return new DetailMyOrderView();
-                // }));
+                showDialog(
+                    context: context,
+                    barrierDismissible: true,
+                    builder: (BuildContext cxt) {
+                      return new DialogCustomerDelete();
+                    });
               },
               child: Padding(
                 padding:
@@ -97,16 +95,12 @@ class ItemListMyCustomer extends StatelessWidget {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(26.0))),
               onPressed: () {
-                // showDialog(
-                //     context: context,
-                //     barrierDismissible: true,
-                //     builder: (BuildContext cxt) {
-                //       return new DetailMyOrderView();
-                //     });
-
-                // Navigator.push(context, MaterialPageRoute(builder: (context) {
-                //   return new DetailMyOrderView();
-                // }));
+                showDialog(
+                    context: context,
+                    barrierDismissible: true,
+                    builder: (BuildContext cxt) {
+                      return new DialogResetPassCus();
+                    });
               },
               child: Padding(
                 padding:
