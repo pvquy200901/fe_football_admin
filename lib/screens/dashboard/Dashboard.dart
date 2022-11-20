@@ -1,5 +1,6 @@
 import 'package:fe_football_admin/main.dart';
 import 'package:fe_football_admin/widget/dashboard_widget/manager_centerNav.dart';
+import 'package:fe_football_admin/widget/dashboard_widget/top_team/top_team_order_list.dart';
 import 'package:fe_football_admin/widget/dashboard_widget/total_value.dart';
 import 'package:fe_football_admin/widget/navigation/nav_leftBar.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,7 @@ class DashboardView extends StatelessWidget {
         ),
         child: SingleChildScrollView(
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               LeftNavbar(),
@@ -38,7 +40,15 @@ class DashboardView extends StatelessWidget {
                       SizedBox(
                         height: 15,
                       ),
-                      //ManagerCenterNavbar(),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [TopteamItem()],
+                          ),
+                        ],
+                      ),
                     ],
                   )),
             ],

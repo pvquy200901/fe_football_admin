@@ -1,3 +1,4 @@
+import 'package:fe_football_admin/widget/team/detail_team/MyTeamInfo.dart';
 import 'package:flutter/material.dart';
 
 class ItemListTeam extends StatelessWidget {
@@ -97,16 +98,9 @@ class ItemListTeam extends StatelessWidget {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(26.0))),
               onPressed: () {
-                // showDialog(
-                //     context: context,
-                //     barrierDismissible: true,
-                //     builder: (BuildContext cxt) {
-                //       return new DetailMyOrderView();
-                //     });
-
-                // Navigator.push(context, MaterialPageRoute(builder: (context) {
-                //   return new DetailMyOrderView();
-                // }));
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return new MyTeamView();
+                }));
               },
               child: Padding(
                 padding:

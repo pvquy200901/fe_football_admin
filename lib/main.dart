@@ -3,6 +3,7 @@ import 'package:fe_football_admin/screens/dashboard/Dashboard.dart';
 import 'package:fe_football_admin/screens/Login.dart';
 import 'package:fe_football_admin/screens/news/News.dart';
 import 'package:fe_football_admin/screens/stadium/Stadium.dart';
+import 'package:fe_football_admin/widget/dashboard_widget/top_team/top_team_order_list.dart';
 import 'package:fe_football_admin/widget/navigation/nav_leftBar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "$title",
       debugShowCheckedModeBanner: false,
-      home: StadiumView(),
+      home: DashboardView(),
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
         textTheme: GoogleFonts.poppinsTextTheme(
