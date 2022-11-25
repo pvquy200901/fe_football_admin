@@ -38,7 +38,7 @@ class NavTopListTeam extends StatelessWidget {
             Container(
               width: 250,
               child: Text(
-                "Email",
+                "Tên viết tắt",
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 18,
@@ -51,7 +51,7 @@ class NavTopListTeam extends StatelessWidget {
             Container(
               width: 150,
               child: Text(
-                "Ngày tạo đội",
+                "Địa chỉ",
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 18,

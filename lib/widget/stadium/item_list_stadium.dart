@@ -2,7 +2,11 @@ import 'package:fe_football_admin/screens/stadium/Stadium_Edit.dart';
 import 'package:fe_football_admin/widget/dialog/dialog_stadium_delete.dart';
 import 'package:flutter/material.dart';
 
+import '../../models/Stadium_model/Stadium.dart';
+
 class ItemListStadium extends StatelessWidget {
+  final listStadium model;
+  const ItemListStadium({super.key, required this.model});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -14,7 +18,7 @@ class ItemListStadium extends StatelessWidget {
             Container(
               width: 150,
               child: Text(
-                "Stadium 1",
+                model.name!,
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 18,
@@ -27,7 +31,7 @@ class ItemListStadium extends StatelessWidget {
             Container(
               width: 450,
               child: Text(
-                "475A Điện Biên Phủ, Bình Thạnh",
+                model.address!,
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 18,
@@ -40,7 +44,7 @@ class ItemListStadium extends StatelessWidget {
             Container(
               width: 110,
               child: Text(
-                "0337979799",
+                model.contact!,
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 18,
@@ -53,7 +57,7 @@ class ItemListStadium extends StatelessWidget {
             Container(
               width: 100,
               child: Text(
-                "20/11/2022",
+                "${model.price} vnđ",
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 18,
@@ -82,7 +86,7 @@ class ItemListStadium extends StatelessWidget {
                     context: context,
                     barrierDismissible: true,
                     builder: (BuildContext cxt) {
-                      return new DialogStadiumDelete();
+                      return new DialogStadiumDelete(name: model.name!,);
                     });
               },
               child: Padding(
@@ -106,7 +110,7 @@ class ItemListStadium extends StatelessWidget {
                   borderRadius: BorderRadius.all(Radius.circular(26.0))),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return new StadiumEditView();
+                  return new StadiumEditView(model: model,);
                 }));
               },
               child: Padding(
@@ -125,5 +129,6 @@ class ItemListStadium extends StatelessWidget {
         ),
       ),
     );
+  
   }
 }

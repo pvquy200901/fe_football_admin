@@ -8,9 +8,12 @@ import 'package:fe_football_admin/widget/stadium/create_stadium/item_create_stad
 import 'package:fe_football_admin/widget/stadium/item_list_stadium.dart';
 import 'package:flutter/material.dart';
 
+import '../../models/Stadium_model/Stadium.dart';
 import '../../widget/stadium/edit_stadium/item_edit_stadium.dart';
 
 class StadiumEditView extends StatelessWidget {
+  final listStadium model;
+   const StadiumEditView({super.key, required this.model});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +31,7 @@ class StadiumEditView extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              ItemEditStadium(),
+              ItemEditStadium(models:model ,),
             ],
           ),
         ),

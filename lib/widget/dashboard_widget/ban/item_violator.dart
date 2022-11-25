@@ -3,9 +3,12 @@ import 'package:fe_football_admin/widget/dialog/dialog_detail_violators.dart';
 import 'package:fe_football_admin/widget/dialog/dialog_detail_warning.dart';
 import 'package:flutter/material.dart';
 
+import '../../../models/News_model/news.dart';
 import '../../team/detail_team/MyTeamInfo.dart';
 
 class ItemViolator extends StatelessWidget {
+  final NewsV2 model;
+  const ItemViolator({super.key, required this.model});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -16,7 +19,7 @@ class ItemViolator extends StatelessWidget {
           children: <Widget>[
             Container(
               child: Text(
-                "Manchester United",
+                model.name!,
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,
@@ -28,7 +31,7 @@ class ItemViolator extends StatelessWidget {
             ),
             Container(
               child: Text(
-                "0335959666",
+                model.title!,
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,
@@ -81,7 +84,7 @@ class ItemViolator extends StatelessWidget {
                     context: context,
                     barrierDismissible: true,
                     builder: (BuildContext cxt) {
-                      return new DialogConfirmWarning();
+                      return new DialogConfirmWarning(email:  model.email!,name: model.name!,);
                     });
               },
               child: Text(

@@ -1,8 +1,14 @@
 import 'package:fe_football_admin/widget/news/detail/item_news_detail.dart';
 import 'package:fe_football_admin/widget/news/detail/news_detail.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../../api/api.dart';
+import '../../models/News_model/news.dart';
 
 class ItemListNewsWait extends StatelessWidget {
+  final News model;
+  const ItemListNewsWait({super.key, required this.model});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -14,7 +20,7 @@ class ItemListNewsWait extends StatelessWidget {
             Container(
               width: 250,
               child: Text(
-                "Nguyễn Văn Tét",
+                model.user!,
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 18,
@@ -27,7 +33,7 @@ class ItemListNewsWait extends StatelessWidget {
             Container(
               width: 250,
               child: Text(
-                "Bài viết về Coder",
+                model.title!,
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 18,
@@ -40,7 +46,7 @@ class ItemListNewsWait extends StatelessWidget {
             Container(
               width: 150,
               child: Text(
-                "20/11/2022",
+                model.createdTime!,
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 18,
@@ -66,7 +72,7 @@ class ItemListNewsWait extends StatelessWidget {
                   borderRadius: BorderRadius.all(Radius.circular(26.0))),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return new NewsDetail();
+                  return new NewsDetail(code: model.code!,);
                 }));
               },
               child: Padding(
@@ -89,16 +95,13 @@ class ItemListNewsWait extends StatelessWidget {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(26.0))),
               onPressed: () {
-                // showDialog(
-                //     context: context,
-                //     barrierDismissible: true,
-                //     builder: (BuildContext cxt) {
-                //       return new DetailMyOrderView();
-                //     });
-
-                // Navigator.push(context, MaterialPageRoute(builder: (context) {
-                //   return new DetailMyOrderView();
-                // }));
+               api.confirmNews(model.code).then((value){
+              if (value){
+                 Future.delayed(const Duration(seconds: 0)).then((value) async {
+                  Get.offAllNamed('/listNews');
+                });
+              }
+            });
               },
               child: Padding(
                 padding:
@@ -120,16 +123,13 @@ class ItemListNewsWait extends StatelessWidget {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(26.0))),
               onPressed: () {
-                // showDialog(
-                //     context: context,
-                //     barrierDismissible: true,
-                //     builder: (BuildContext cxt) {
-                //       return new DetailMyOrderView();
-                //     });
-
-                // Navigator.push(context, MaterialPageRoute(builder: (context) {
-                //   return new DetailMyOrderView();
-                // }));
+               api.denyNews(model.code).then((value){
+              if (value){
+                 Future.delayed(const Duration(seconds: 0)).then((value) async {
+                  Get.offAllNamed('/listNews');
+                });
+              }
+            });
               },
               child: Padding(
                 padding:

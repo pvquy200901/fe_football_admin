@@ -2,16 +2,19 @@ import 'package:fe_football_admin/widget/news/detail/item_news_detail.dart';
 import 'package:flutter/material.dart';
 
 class NewsDetail extends StatelessWidget {
+  final String code;
+  const NewsDetail({super.key, required this.code});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       body: Container(
         color: Colors.grey,
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              ItemNewsDetail(),
+              ItemNewsDetail(code:code,),
               SizedBox(
                 height: 25,
               ),

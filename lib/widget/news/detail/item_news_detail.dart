@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 
-String noidung =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu finibus tellus. Quisque nec luctus ligula. Nullam molestie non nunc eget accumsan. Integer eu enim diam. Maecenas rutrum a tortor eleifend faucibus. Etiam sollicitudin dui vel odio elementum maximus. Nulla in aliquet tellus, ut aliquam orci. Pellentesque imperdiet neque vitae dapibus interdum. Nunc id rhoncus tortor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec feugiat arcu ac nibh ullamcorper pellentesque eu non justo. Phasellus in magna quis sem suscipit dignissim quis ut dui\n Sed lectus turpis, congue a dui vitae, malesuada tempor turpis. Vestibulum leo ligula, fringilla ultricies lectus eu, blandit ultricies tellus. Proin tincidunt ex sed sollicitudin dapibus. Nunc convallis justo non lectus iaculis, at gravida dui semper. Aliquam eu nisi at erat malesuada dictum. Morbi a leo id quam tincidunt aliquam accumsan nec sem. Etiam ac laoreet erat. Quisque risus tortor, elementum id varius sit amet, vulputate at elit. Sed metus nunc, venenatis volutpat tincidunt semper, interdum et nulla. Phasellus et lacinia elit, non vehicula nisi. Mauris sollicitudin tempus neque, sit amet mollis massa tempor at. Duis porta venenatis viverra. Quisque viverra urna ac gravida mattis. Etiam sit amet faucibus metus. Curabitur metus risus, accumsan in velit a, consectetur tincidunt elit. Integer sed lacinia elit.";
+import '../../../api/api.dart';
+
 
 class ItemNewsDetail extends StatelessWidget {
+  final String code;
+  const ItemNewsDetail({super.key, required this.code});
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    return Padding(
+    return FutureBuilder(
+      future: api.getInfoNewsForAdmin(code),
+      builder: (context, snapshot) {
+      if(snapshot.hasData){
+        List<String> img = snapshot.data!.imagesNews!;
+        return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
       child: Container(
         width: width,
@@ -19,7 +26,7 @@ class ItemNewsDetail extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Lorem ipsum dolor sit amet',
+                    snapshot.data!.title!,
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 26.0,
@@ -32,7 +39,7 @@ class ItemNewsDetail extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    '18/11/2022 20:55',
+                    snapshot.data!.createdTime!,
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 12.0,
@@ -65,7 +72,7 @@ class ItemNewsDetail extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                noidung,
+                                snapshot.data!.description!,
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 16.0,
@@ -95,57 +102,54 @@ class ItemNewsDetail extends StatelessWidget {
                         Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              ClipRRect(
-                                child: SizedBox.fromSize(
-                                  size: Size.fromRadius(95), // Image radius
-                                  child: Image.network('assets/add-image.png',
-                                      fit: BoxFit.cover),
-                                ),
-                              ),
-                              ClipRRect(
-                                child: SizedBox.fromSize(
-                                  size: Size.fromRadius(95), // Image radius
-                                  child: Image.network('assets/add-image.png',
-                                      fit: BoxFit.cover),
-                                ),
-                              ),
+                                for(int i = 0; i <img.length ; i ++)
+                                      ClipRRect(
+                                        child: SizedBox.fromSize(
+                                          size:
+                                              Size.fromRadius(95), // Image radius
+                                          child: Image.network(
+                                              'http://localhost:50000/api/File/image/${img[i]}',
+                                              fit: BoxFit.cover),
+                                        ),
+                                      ),
+                                
                             ]),
-                        Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              ClipRRect(
-                                child: SizedBox.fromSize(
-                                  size: Size.fromRadius(95), // Image radius
-                                  child: Image.network('assets/add-image.png',
-                                      fit: BoxFit.cover),
-                                ),
-                              ),
-                              ClipRRect(
-                                child: SizedBox.fromSize(
-                                  size: Size.fromRadius(95), // Image radius
-                                  child: Image.network('assets/add-image.png',
-                                      fit: BoxFit.cover),
-                                ),
-                              ),
-                            ]),
-                        Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              ClipRRect(
-                                child: SizedBox.fromSize(
-                                  size: Size.fromRadius(95), // Image radius
-                                  child: Image.network('assets/add-image.png',
-                                      fit: BoxFit.cover),
-                                ),
-                              ),
-                              ClipRRect(
-                                child: SizedBox.fromSize(
-                                  size: Size.fromRadius(95), // Image radius
-                                  child: Image.network('assets/add-image.png',
-                                      fit: BoxFit.cover),
-                                ),
-                              ),
-                            ]),
+                        // Column(
+                        //     mainAxisAlignment: MainAxisAlignment.center,
+                        //     children: [
+                        //       ClipRRect(
+                        //         child: SizedBox.fromSize(
+                        //           size: Size.fromRadius(95), // Image radius
+                        //           child: Image.network('assets/add-image.png',
+                        //               fit: BoxFit.cover),
+                        //         ),
+                        //       ),
+                        //       ClipRRect(
+                        //         child: SizedBox.fromSize(
+                        //           size: Size.fromRadius(95), // Image radius
+                        //           child: Image.network('assets/add-image.png',
+                        //               fit: BoxFit.cover),
+                        //         ),
+                        //       ),
+                        //     ]),
+                        // Column(
+                        //     mainAxisAlignment: MainAxisAlignment.center,
+                        //     children: [
+                        //       ClipRRect(
+                        //         child: SizedBox.fromSize(
+                        //           size: Size.fromRadius(95), // Image radius
+                        //           child: Image.network('assets/add-image.png',
+                        //               fit: BoxFit.cover),
+                        //         ),
+                        //       ),
+                        //       ClipRRect(
+                        //         child: SizedBox.fromSize(
+                        //           size: Size.fromRadius(95), // Image radius
+                        //           child: Image.network('assets/add-image.png',
+                        //               fit: BoxFit.cover),
+                        //         ),
+                        //       ),
+                        //     ]),
                       ],
                     )
                   ],
@@ -165,5 +169,9 @@ class ItemNewsDetail extends StatelessWidget {
             ]),
       ),
     );
+  
+      }
+      else{return CircularProgressIndicator();}
+    },);
   }
 }

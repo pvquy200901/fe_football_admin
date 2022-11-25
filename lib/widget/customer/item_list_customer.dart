@@ -2,7 +2,11 @@ import 'package:fe_football_admin/widget/dialog/dialog_customer_delete.dart';
 import 'package:fe_football_admin/widget/dialog/dialog_reset_pass_cus.dart';
 import 'package:flutter/material.dart';
 
+import '../../models/User_model/User.dart';
+
 class ItemListMyCustomer extends StatelessWidget {
+  final listUser model;
+  const ItemListMyCustomer({super.key, required this.model});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -14,7 +18,7 @@ class ItemListMyCustomer extends StatelessWidget {
             Container(
               width: 250,
               child: Text(
-                "Nguyen Van Ba",
+               model.name!,
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 18,
@@ -27,7 +31,7 @@ class ItemListMyCustomer extends StatelessWidget {
             Container(
               width: 150,
               child: Text(
-                "0335656666",
+                model.phone!,
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 18,
@@ -40,7 +44,7 @@ class ItemListMyCustomer extends StatelessWidget {
             Container(
               width: 250,
               child: Text(
-                "qdnmnnnnn@gmail.com",
+                model.email!,
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 18,
@@ -53,7 +57,7 @@ class ItemListMyCustomer extends StatelessWidget {
             Container(
               width: 150,
               child: Text(
-                "20/11/2001",
+                model.birthday!,
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 18,
@@ -72,7 +76,7 @@ class ItemListMyCustomer extends StatelessWidget {
                     context: context,
                     barrierDismissible: true,
                     builder: (BuildContext cxt) {
-                      return new DialogCustomerDelete();
+                      return new DialogCustomerDelete(username: model.username!,);
                     });
               },
               child: Padding(
@@ -90,30 +94,30 @@ class ItemListMyCustomer extends StatelessWidget {
             SizedBox(
               width: 5,
             ),
-            MaterialButton(
-              color: Colors.blue,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(26.0))),
-              onPressed: () {
-                showDialog(
-                    context: context,
-                    barrierDismissible: true,
-                    builder: (BuildContext cxt) {
-                      return new DialogResetPassCus();
-                    });
-              },
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 2.0, horizontal: 2.0),
-                child: Text(
-                  "Đặt lại ",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                      fontStyle: FontStyle.normal),
-                ),
-              ),
-            ),
+            // MaterialButton(
+            //   color: Colors.blue,
+            //   shape: RoundedRectangleBorder(
+            //       borderRadius: BorderRadius.all(Radius.circular(26.0))),
+            //   onPressed: () {
+            //     showDialog(
+            //         context: context,
+            //         barrierDismissible: true,
+            //         builder: (BuildContext cxt) {
+            //           return new DialogResetPassCus();
+            //         });
+            //   },
+            //   child: Padding(
+            //     padding:
+            //         const EdgeInsets.symmetric(vertical: 2.0, horizontal: 2.0),
+            //     child: Text(
+            //       "Đặt lại ",
+            //       style: TextStyle(
+            //           color: Colors.black,
+            //           fontSize: 16,
+            //           fontStyle: FontStyle.normal),
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),

@@ -2,7 +2,11 @@ import 'package:fe_football_admin/widget/dialog/dialog_news_delete.dart';
 import 'package:fe_football_admin/widget/news/detail/news_detail.dart';
 import 'package:flutter/material.dart';
 
+import '../../models/News_model/news.dart';
+
 class ItemListNews extends StatelessWidget {
+  final News model;
+  const ItemListNews({super.key, required this.model});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -14,7 +18,7 @@ class ItemListNews extends StatelessWidget {
             Container(
               width: 250,
               child: Text(
-                "Nguyễn Văn Tét",
+                model.user!,
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 18,
@@ -27,7 +31,7 @@ class ItemListNews extends StatelessWidget {
             Container(
               width: 250,
               child: Text(
-                "Bài viết về Coder",
+                model.title!,
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 18,
@@ -40,7 +44,7 @@ class ItemListNews extends StatelessWidget {
             Container(
               width: 150,
               child: Text(
-                "20/11/2022",
+                model.createdTime!,
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 18,
@@ -69,7 +73,7 @@ class ItemListNews extends StatelessWidget {
                     context: context,
                     barrierDismissible: true,
                     builder: (BuildContext cxt) {
-                      return new DialogNewsDelete();
+                      return new DialogNewsDelete(code:  model.code!,);
                     });
               },
               child: Padding(
@@ -93,7 +97,7 @@ class ItemListNews extends StatelessWidget {
                   borderRadius: BorderRadius.all(Radius.circular(26.0))),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return new NewsDetail();
+                  return new NewsDetail(code: model.code!);
                 }));
               },
               child: Padding(

@@ -1,42 +1,59 @@
-import 'package:fe_football_admin/screens/customer/Customer.dart';
-import 'package:fe_football_admin/screens/dashboard/Dashboard.dart';
-import 'package:fe_football_admin/screens/Login.dart';
-import 'package:fe_football_admin/screens/news/News.dart';
-import 'package:fe_football_admin/screens/selling/Selling.dart';
-import 'package:fe_football_admin/screens/stadium/Stadium.dart';
-import 'package:fe_football_admin/screens/team/Team.dart';
-import 'package:fe_football_admin/widget/dashboard_widget/top_team/top_team_order_list.dart';
-import 'package:fe_football_admin/widget/navigation/nav_leftBar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-void main() => runApp(MyApp());
+import 'package:url_strategy/url_strategy.dart';
 
-class MyApp extends StatelessWidget {
-  var title = "QDN - Football";
+import 'package:get/get.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+
+import 'config/app_config.dart';
+import 'config/route_config.dart';
+import 'config/theme_config.dart';
+import 'controller/app_controller.dart';
+
+void main() async {
+  setPathUrlStrategy();
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(const MyApp());
+}
+
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    appController.loadingData(false);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "$title",
+    final textTheme = Theme.of(context).textTheme;
+    return GetMaterialApp(
+      color: ThemeConfig.background2,
       debugShowCheckedModeBanner: false,
-      home: SellingView(),
+      localizationsDelegates: const [
+        GlobalCupertinoLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
       theme: ThemeData(
-        primarySwatch: Colors.blueGrey,
-        textTheme: GoogleFonts.poppinsTextTheme(
-          Theme.of(context).textTheme,
-        ),
-        outlinedButtonTheme: OutlinedButtonThemeData(
-            style: OutlinedButton.styleFrom(
-                primary: Colors.white,
-                textStyle: TextStyle(
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 1.2,
-                ),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30.0),
-                ))),
+        fontFamily: ThemeConfig.fontFamily,
+        backgroundColor: ThemeConfig.background2,
+        textTheme: GoogleFonts.robotoTextTheme(textTheme).copyWith(
+            headline1:
+                ThemeConfig.headerStyle.copyWith(fontWeight: FontWeight.bold),
+            bodyText1: ThemeConfig.defaultStyle,
+            bodyText2: ThemeConfig.defaultStyle),
       ),
+      title: AppConfig.APP_NAME,
+      initialRoute: '/login',
+      getPages: RouteConfig().getRoute,
     );
   }
 }

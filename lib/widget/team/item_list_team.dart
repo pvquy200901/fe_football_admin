@@ -2,7 +2,11 @@ import 'package:fe_football_admin/widget/dialog/dialog_team_delete.dart';
 import 'package:fe_football_admin/widget/team/detail_team/MyTeamInfo.dart';
 import 'package:flutter/material.dart';
 
+import '../../models/Team_model/team.dart';
+
 class ItemListTeam extends StatelessWidget {
+  final listTeam model;
+  const ItemListTeam({super.key, required this.model});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -14,7 +18,7 @@ class ItemListTeam extends StatelessWidget {
             Container(
               width: 250,
               child: Text(
-                "Manchester United",
+                model.name!,
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 18,
@@ -27,7 +31,7 @@ class ItemListTeam extends StatelessWidget {
             Container(
               width: 150,
               child: Text(
-                "0335656666",
+                model.phone!,
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 18,
@@ -40,7 +44,7 @@ class ItemListTeam extends StatelessWidget {
             Container(
               width: 250,
               child: Text(
-                "qdnmnnnnn@gmail.com",
+                model.shortName!,
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 18,
@@ -53,7 +57,7 @@ class ItemListTeam extends StatelessWidget {
             Container(
               width: 150,
               child: Text(
-                "20/11/2022",
+                model.address!,
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 18,
@@ -72,7 +76,7 @@ class ItemListTeam extends StatelessWidget {
                     context: context,
                     barrierDismissible: true,
                     builder: (BuildContext cxt) {
-                      return new DialogTeamDelete();
+                      return new DialogTeamDelete(team: model.name!,);
                     });
 
                 // Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -100,7 +104,7 @@ class ItemListTeam extends StatelessWidget {
                   borderRadius: BorderRadius.all(Radius.circular(26.0))),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return new MyTeamView();
+                  return new MyTeamView(team: model.name!,);
                 }));
               },
               child: Padding(

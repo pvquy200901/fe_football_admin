@@ -5,9 +5,11 @@ class InputField extends StatelessWidget {
   final String content;
   //bool hide;
   final bool isHidden;
+  final TextEditingController controller;
+
 
   InputField(
-      {required this.label, required this.content, required this.isHidden});
+      {required this.label, required this.content, required this.isHidden, required this.controller});
 
   @override
   Widget build(BuildContext context) {

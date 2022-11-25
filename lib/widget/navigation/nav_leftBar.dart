@@ -5,6 +5,7 @@ import 'package:fe_football_admin/screens/stadium/Stadium.dart';
 import 'package:fe_football_admin/screens/team/Team.dart';
 import 'package:fe_football_admin/widget/navigation/admin_avata_user.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class LeftNavbar extends StatelessWidget {
   @override
@@ -105,10 +106,10 @@ class LeftNavbar extends StatelessWidget {
                           borderRadius:
                               BorderRadius.all(Radius.circular(25.0))),
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return new DashboardView();
-                        }));
+                        Future.delayed(const Duration(seconds: 0))
+                            .then((value) async {
+                          Get.offAllNamed('/dashboardView');
+                        });
                       },
                       child: Text(
                         "Trang chủ",
@@ -144,10 +145,10 @@ class LeftNavbar extends StatelessWidget {
                           borderRadius:
                               BorderRadius.all(Radius.circular(25.0))),
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return new CustomerView();
-                        }));
+                        Future.delayed(const Duration(seconds: 0))
+                            .then((value) async {
+                          Get.offAllNamed('/listUser');
+                        });
                       },
                       child: Text(
                         "Khách hàng",
@@ -182,10 +183,10 @@ class LeftNavbar extends StatelessWidget {
                           borderRadius:
                               BorderRadius.all(Radius.circular(25.0))),
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return new StadiumView();
-                        }));
+                        Future.delayed(const Duration(seconds: 0))
+                            .then((value) async {
+                          Get.offAllNamed('/listStadium');
+                        });
                       },
                       child: Text(
                         "Sân",
@@ -221,10 +222,10 @@ class LeftNavbar extends StatelessWidget {
                           borderRadius:
                               BorderRadius.all(Radius.circular(25.0))),
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return new TeamView();
-                        }));
+                        Future.delayed(const Duration(seconds: 0))
+                            .then((value) async {
+                          Get.offAllNamed('/listTeam');
+                        });
                       },
                       child: Text(
                         "Đội",
@@ -259,10 +260,10 @@ class LeftNavbar extends StatelessWidget {
                           borderRadius:
                               BorderRadius.all(Radius.circular(25.0))),
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return new NewsView();
-                        }));
+                        Future.delayed(const Duration(seconds: 0))
+                            .then((value) async {
+                          Get.offAllNamed('/listNews');
+                        });
                       },
                       child: Text(
                         "Tin tức",

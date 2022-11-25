@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 
+import '../../api/api.dart';
+
 class DialogConfirmWarning extends StatelessWidget {
+  final String email;
+  final String name;
+  const DialogConfirmWarning({super.key, required this.email, required this.name});
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Text('Người dùng: ' + '"Manchester"'),
+      title:  Text("Người dùng: ${name}"),
       content: const Text('Người này đã vi phạm về hình ảnh không phù hợp'),
       actions: <Widget>[
         TextButton(
@@ -12,7 +17,10 @@ class DialogConfirmWarning extends StatelessWidget {
           child: const Text('Hủy'),
         ),
         TextButton(
-          onPressed: () => Navigator.pop(context, 'OK'),
+          onPressed: () {
+            api.sendEmail(email);
+            Navigator.pop(context, 'OK');
+          },
           child: const Text('Cảnh cáo'),
         ),
       ],

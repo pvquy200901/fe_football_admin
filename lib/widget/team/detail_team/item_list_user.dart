@@ -2,9 +2,25 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import '../../../models/User_model/User.dart';
+
 class ItemListUserTeams extends StatelessWidget {
+  final infoUser model;
+  const ItemListUserTeams({super.key, required this.model});
   @override
   Widget build(BuildContext context) {
+    String chucVu;
+    if (model.chucVu == true) {
+      chucVu = "Đội trưởng";
+    } else {
+      chucVu = "Thành viên";
+    }
+    String img;
+    if (model.avatar == "") {
+      img = 'assets/LOGO_QDN.png';
+    } else {
+      img = 'http://localhost:50000/api/File/image/${model.avatar}';
+    }
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
       child: Container(
@@ -38,20 +54,22 @@ class ItemListUserTeams extends StatelessWidget {
                       SizedBox(
                         width: 40,
                       ),
-                      ClipRRect(
-                        borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(15.0),
-                          topLeft: Radius.circular(15.0),
-                          bottomLeft: Radius.circular(15.0),
-                          bottomRight: Radius.circular(15),
+                    
+                        ClipRRect(
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(15.0),
+                            topLeft: Radius.circular(15.0),
+                            bottomLeft: Radius.circular(15.0),
+                            bottomRight: Radius.circular(15),
+                          ),
+                          child: SizedBox.fromSize(
+                            size: Size.fromRadius(90), // Image radius
+                            child: Image.network(
+                                img,
+                                fit: BoxFit.cover),
+                          ),
                         ),
-                        child: SizedBox.fromSize(
-                          size: Size.fromRadius(90), // Image radius
-                          child: Image.network('assets/LOGO_QDN.png',
-                              fit: BoxFit.cover),
-                        ),
-                      ),
-
+                     
                       //==================
                       Visibility(
                           visible: false,
@@ -90,14 +108,14 @@ class ItemListUserTeams extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        "Nguyễn Văn A",
+                        model.name!,
                         style: TextStyle(
                             fontWeight: FontWeight.w100,
                             fontSize: 26.0,
                             color: Colors.white),
                       ),
                       Text(
-                        "Pivot",
+                        model.phone!,
                         style: TextStyle(
                             fontWeight: FontWeight.normal,
                             fontSize: 10.0,
@@ -109,7 +127,7 @@ class ItemListUserTeams extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: <Widget>[
                               Text(
-                                "Sút tung nóc",
+                                chucVu,
                                 style: TextStyle(
                                     fontWeight: FontWeight.normal,
                                     fontSize: 14.0,

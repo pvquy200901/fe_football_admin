@@ -2,6 +2,8 @@ import 'package:fe_football_admin/widget/team/detail_team/user_team.dart';
 import 'package:flutter/material.dart';
 
 class MyTeamView extends StatelessWidget {
+  final String team;
+  const MyTeamView({super.key, required this.team});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +23,7 @@ class MyTeamView extends StatelessWidget {
             children: <Widget>[
               Visibility(
                 visible: true,
-                child: LandingUserTeam(),
+                child: LandingUserTeam(team: team,),
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(

@@ -38,18 +38,18 @@ class ItemTopTeam extends StatelessWidget {
                     fontStyle: FontStyle.normal),
               ),
             ),
-            MaterialButton(
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return new MyTeamView();
-                }));
-              },
-              child: Icon(
-                Icons.remove_red_eye,
-                color: Colors.white,
-                size: 14.0,
-              ),
-            ),
+            // MaterialButton(
+            //   onPressed: () {
+            //     Navigator.push(context, MaterialPageRoute(builder: (context) {
+            //       return new MyTeamView();
+            //     }));
+            //   },
+            //   child: Icon(
+            //     Icons.remove_red_eye,
+            //     color: Colors.white,
+            //     size: 14.0,
+            //   ),
+            // ),
           ],
         ),
       ),

@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 
+import '../../../api/api.dart';
 import 'item_landing_team.dart';
 import 'item_list_match_history.dart';
 
 class LandingUserTeam extends StatelessWidget {
+  final String team;
+  const LandingUserTeam({super.key, required this.team});
   @override
   Widget build(BuildContext context) {
-    return Padding(
+   return FutureBuilder(
+    future: api.getInfoTeamForAdmin(team),
+    builder: (context, snapshot) {
+     if(snapshot.hasData){
+       return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
       child: Container(
         child: Column(
@@ -30,7 +37,7 @@ class LandingUserTeam extends StatelessWidget {
                 Column(
                   children: <Widget>[
                     Text(
-                      "Thành viên Đội của bạn",
+                      "Thành viên Đội",
                       style: TextStyle(color: Colors.black, fontSize: 28),
                     ),
                   ],
@@ -40,7 +47,7 @@ class LandingUserTeam extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                ItemLandingTeams(),
+                ItemLandingTeams(team: snapshot.data!.name!,),
               ],
             ),
             Container(
@@ -51,43 +58,7 @@ class LandingUserTeam extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                SizedBox(
-                  width: 10,
-                ),
-                Column(
-                  children: <Widget>[
-                    Text(
-                      "Lịch sử thi đấu",
-                      style: TextStyle(color: Colors.black, fontSize: 28),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  ListView(
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    children: <Widget>[
-                      for (int i = 0; i < 5; i++)
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text((i + 1).toString() + "-"),
-                            const SizedBox(
-                              width: 150,
-                            ),
-                            ItemMatchHistoryTeam(),
-                          ],
-                        ),
-                    ],
-                  ),
-                ]),
+          
             Container(
               color: Colors.black,
               height: 3.5,
@@ -118,7 +89,7 @@ class LandingUserTeam extends StatelessWidget {
                 spacing: 8.0, // gap between adjacent chips
                 runSpacing: 4.0, // gap between lines
                 children: <Widget>[
-                  for (int i = 0; i < 15; i++)
+                  for (int i = 0; i < snapshot.data!.imageTeam!.length; i++)
                     ClipRRect(
                       borderRadius: BorderRadius.only(
                         topRight: Radius.circular(15.0),
@@ -128,7 +99,7 @@ class LandingUserTeam extends StatelessWidget {
                       ),
                       child: SizedBox.fromSize(
                         size: Size.fromRadius(120), // Image radius
-                        child: Image.network('assets/LOGO_QDN.png',
+                        child: Image.network('http://localhost:50000/api/File/image/${snapshot.data!.imageTeam![i]}',
                             fit: BoxFit.cover),
                       ),
                     ),
@@ -137,5 +108,9 @@ class LandingUserTeam extends StatelessWidget {
         ),
       ),
     );
+  
+     }
+     else{return CircularProgressIndicator();}
+   },);
   }
 }

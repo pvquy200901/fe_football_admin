@@ -2,7 +2,9 @@ import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:get/get.dart';
 
+import '../../controller/app_controller.dart';
 import '../../screens/Login.dart';
 
 class AdminLeftBar extends StatelessWidget {
@@ -25,7 +27,7 @@ class AdminLeftBar extends StatelessWidget {
         child: DropdownButtonHideUnderline(
           child: DropdownButton2(
             customButton: Row(
-              children: const <Widget>[
+              children:  <Widget>[
                 SizedBox(
                   width: 5,
                 ),
@@ -34,7 +36,7 @@ class AdminLeftBar extends StatelessWidget {
                   backgroundImage: NetworkImage('images/ex_user.png'),
                 ),
                 Text(
-                  'Tài khoản',
+                  appController.user,
                   style: TextStyle(color: Colors.white),
                 ),
                 Icon(
@@ -122,32 +124,19 @@ class MenuItems {
   static onChanged(BuildContext context, MenuItem item) {
     switch (item) {
       case MenuItems.profile:
-        // Navigator.push(context, MaterialPageRoute(builder: (context) {
-        //   return new ProfileView();
-        // }));
+      
         break;
       case MenuItems.home:
-        // Navigator.push(context, MaterialPageRoute(builder: (context) {
-        //   return new MyTeamView();
-        // }));
+      
         break;
-      // case MenuItems.myOrder:
-      //   //Do something
-      //   Navigator.push(context, MaterialPageRoute(builder: (context) {
-      //     return new MyOrderView();
-      //   }));
-      //   break;
-      // case MenuItems.myNews:
-      //   //Do something
-      //   Navigator.push(context, MaterialPageRoute(builder: (context) {
-      //     return new MyNewsDetail();
-      //   }));
-      //   break;
+      
       case MenuItems.logout:
         //Do something
-        Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return new Login();
-        }));
+        Future.delayed(const Duration(seconds: 0))
+                        .then((value) async {
+                      await appController.resetLoginData();
+                      Get.offAllNamed('/login');
+                    });
         break;
     }
   }

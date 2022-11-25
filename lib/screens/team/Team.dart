@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:fe_football_admin/main.dart';
 import 'package:fe_football_admin/widget/customer/item_list_customer.dart';
 import 'package:fe_football_admin/widget/customer/nav_customer/nav_top_list_customer.dart';
@@ -8,10 +10,16 @@ import 'package:fe_football_admin/widget/team/item_list_team.dart';
 import 'package:fe_football_admin/widget/team/nav_customer/nav_top_list_team.dart';
 import 'package:flutter/material.dart';
 
+import '../../api/api.dart';
+
 class TeamView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+   return FutureBuilder(
+    future: api.getListTeam(),
+    builder: (context, snapshot) {
+     if(snapshot.hasData){
+       return Scaffold(
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -74,7 +82,7 @@ class TeamView extends StatelessWidget {
                                         fontFamily: 'Merriweather'),
                                   ),
                                   Text(
-                                    "15",
+                                    snapshot.data!.length.toString(),
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 28.0,
@@ -102,7 +110,7 @@ class TeamView extends StatelessWidget {
                           height: 1,
                           width: 1250,
                         ),
-                        for (int i = 0; i < 15; i++) ItemListTeam(),
+                        for (int i = 0; i < snapshot.data!.length; i++) ItemListTeam(model: snapshot.data![i],),
                       ],
                     ),
                   ),
@@ -113,5 +121,11 @@ class TeamView extends StatelessWidget {
         ),
       ),
     );
+  
+     }
+     else{
+      return CircularProgressIndicator();
+     }
+   },);
   }
 }

@@ -4,28 +4,38 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import '../../../api/api.dart';
 import 'item_list_user.dart';
 
 class ItemLandingTeams extends StatelessWidget {
+  final String team;
+  const ItemLandingTeams({super.key, required this.team});
   List<Widget> pageChildren(double width) {
     return <Widget>[
-      ListView(
+      FutureBuilder(
+        future: api.getListUserInTeam(team),
+        builder: (context, snapshot) {
+        if(snapshot.hasData){
+          return ListView(
         shrinkWrap: true,
         physics: NeverScrollableScrollPhysics(),
         children: <Widget>[
           Wrap(direction: Axis.horizontal, alignment: WrapAlignment.center,
               // gap between lines
               children: <Widget>[
-                for (int i = 0; i < 15; i++)
+                for (int i = 0; i < snapshot.data!.length; i++)
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      ItemListUserTeams(),
+                      ItemListUserTeams(model: snapshot.data![i],),
                     ],
                   ),
               ]),
         ],
-      ),
+      );
+        }
+        else{return CircularProgressIndicator();}
+      },)
     ];
   }
 
