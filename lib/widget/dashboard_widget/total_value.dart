@@ -1,6 +1,8 @@
 import 'package:fe_football_admin/widget/navigation/admin_avata_user.dart';
 import 'package:flutter/material.dart';
 
+import '../../api/api.dart';
+
 class TotalValueTopNav extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,7 @@ class TotalValueTopNav extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                "Tổng số đơn đặt sân",
+                "Tổng số đơn đặt sân trong tháng",
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 14.0,
@@ -42,14 +44,21 @@ class TotalValueTopNav extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              Text(
-                "15",
+              FutureBuilder(
+                future: api.totalOrderInMonth(),
+                builder: (context, snapshot) {
+                if(snapshot.hasData){
+                  return Text(
+                snapshot.data!.toString(),
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 28.0,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'Merriweather'),
-              ),
+              );
+                }
+                else{return CircularProgressIndicator();}
+              },)
             ],
           ),
         ),
@@ -90,14 +99,21 @@ class TotalValueTopNav extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              Text(
-                "20",
+              FutureBuilder(
+                future: api.getListConfirmNews(),
+                builder: (context, snapshot) {
+                if(snapshot.hasData){
+                  return Text(
+                snapshot.data!.length.toString(),
                 style: TextStyle(
                     color: Colors.redAccent,
                     fontSize: 28.0,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'Merriweather'),
-              ),
+              );
+                }
+                else{return CircularProgressIndicator();}
+              },)
             ],
           ),
         ),
@@ -141,14 +157,21 @@ class TotalValueTopNav extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    "20",
+                  FutureBuilder(
+                    future: api.getListUser(),
+                    builder: (context, snapshot) {
+                    if(snapshot.hasData){
+                      return Text(
+                    snapshot.data!.length.toString(),
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 28.0,
                         fontWeight: FontWeight.bold,
                         fontFamily: 'Merriweather'),
-                  ),
+                  );
+                    }
+                    else{return CircularProgressIndicator();}
+                  },),
                   Icon(
                     Icons.arrow_upward,
                     color: Colors.green,
@@ -196,14 +219,21 @@ class TotalValueTopNav extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              Text(
-                "20",
+              FutureBuilder(
+                future: api.getListTeam(),
+                builder: (context, snapshot) {
+                if(snapshot.hasData){
+                  return Text(
+                snapshot.data!.length.toString(),
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 28.0,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'Merriweather'),
-              ),
+              );
+                }
+                else{return CircularProgressIndicator();}
+              },)
             ],
           ),
         ),

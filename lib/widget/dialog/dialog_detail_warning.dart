@@ -10,7 +10,7 @@ class DialogConfirmWarning extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlertDialog(
       title:  Text("Người dùng: ${name}"),
-      content: const Text('Người này đã vi phạm về hình ảnh không phù hợp'),
+      content: const Text('Người này đã vi phạm đăng bài không phù hợp'),
       actions: <Widget>[
         TextButton(
           onPressed: () => Navigator.pop(context, 'Cancel'),

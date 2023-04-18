@@ -51,6 +51,21 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   image_picker: ^0.8.6
+  flutter_format_money_vietnam: ^0.0.2
+  customizable_counter: ^1.0.4
+  flutter_admin_scaffold: ^1.2.0
+  percent_indicator: ^4.2.3
+  google_maps_flutter: ^2.2.0
+  location: ^4.4.0
+  mapbox_gl: ^0.16.0
+  google_maps: ^6.2.0
+  flutter_map: ^3.1.0
+  latlong2: ^0.8.1
+  maps_launcher: ^2.0.0
+  google_maps_flutter_web: ^0.3.2+2
+  google_maps_flutter_platform_interface: ^2.1.1
+  geocoding: ^2.1.0
+
 
 dev_dependencies:
   flutter_test:

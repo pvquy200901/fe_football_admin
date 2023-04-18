@@ -5,8 +5,6 @@ import '../../controller/app_controller.dart';
 import 'package:dio/dio.dart';
 
 import '../../models/Stadium_model/Stadium.dart';
-import '../../models/Team_model/team.dart';
-//import 'package:fe_dacn_football/controller/app_controller.dart';
 
 mixin StadiumApi on BaseApi {
   Future<List<listStadium>> getListStadium() async {
@@ -46,7 +44,6 @@ mixin StadiumApi on BaseApi {
               'token': appController.token
             },
           ));
-
       return true;
     } catch (e) {
       saveLog(e);
@@ -74,7 +71,7 @@ mixin StadiumApi on BaseApi {
     }
   }
 
-  Future<bool> editStadium(name, data) async {
+  Future<bool> editStadium(data) async {
     const url = '/api/Admin/editStadium';
     try {
       Response response = await dio.post(url,
@@ -85,12 +82,14 @@ mixin StadiumApi on BaseApi {
               'accept': '*/*',
               'token': appController.token
             },
-          ),
-          queryParameters: {'name': name});
+          ),);
       if (response.statusCode == 200) {
+        print("OK");
         return true;
       }
-      else{return false;}
+      else{
+        print(response.statusCode);
+        return false;}
     } catch (e) {
       saveLog(e);
       return false;
@@ -116,6 +115,29 @@ mixin StadiumApi on BaseApi {
       saveLog(e);
       print(e);
       return "";
+    }
+  }
+
+  Future<infoStadium> getInfoStadium(name) async{
+    const url = '/api/Admin/getInfoStadiumForAdmin';
+    try {
+      Response response = await dio.get(url, options: Options(
+        headers: {'Content-Type': 'application/json', 'accept': '*/*','token':appController.token},
+      ),
+      queryParameters: {'name': name}
+      );
+      if (response.statusCode == 200) {
+        print("------------------------------${response.data.toString()}");
+        return infoStadium.fromJson(response.data);
+       
+      } else {
+        appController.errorLog = response.data['mess'];
+        return infoStadium();
+      }
+    } catch (e) {
+      
+      saveLog(e);
+      return infoStadium();
     }
   }
 }

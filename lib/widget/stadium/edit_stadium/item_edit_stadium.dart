@@ -280,7 +280,7 @@ class _ItemEditStadiumPageState extends State<ItemEditStadium> {
                         };
                         print("${widget.models.name!} + ${data}");
                         api
-                            .editStadium(widget.models.name!, data)
+                            .editStadium(data)
                             .then((value) {
                           if (value) {
                             _displaySuccessMotionToast();

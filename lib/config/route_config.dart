@@ -11,6 +11,9 @@ import '../screens/news/News.dart';
 import '../screens/news/News_Accept.dart';
 import '../screens/stadium/Stadium.dart';
 import '../screens/team/Team.dart';
+import '../widget/selling/create_order/item_stadium.dart';
+import '../widget/selling/create_order/landing_stadium.dart';
+import '../widget/selling/create_order/listWaitConfirm.dart';
 
 
 class RouteConfig {
@@ -31,11 +34,13 @@ class RouteConfig {
         //GetPage(name: '/', page: () => const SplashScreen()),
         GetPage(name: '/dashboardView', page: () => DashboardView()),
        GetPage(name: '/listStadium', page: () => StadiumView()),
+       GetPage(name: '/order', page: () => LandingStadium()),
        GetPage(name: '/listUser', page: () => CustomerView()),
        GetPage(name: '/listNews', page: () => NewsView()),
        GetPage(name: '/listConfirmNews', page: () => NewsAcceptView()),
        GetPage(name: '/listTeam', page: () => TeamView()),
-        GetPage(name: '/login', page: () => const Login())
+       GetPage(name: '/listConfirmOrder', page: () => ListWaitConfirm()),
+        GetPage(name: '/login', page: () => const Login()) 
         //     desktopBody: const LogInPage(),
         //     mobileBody: const LogInMobilePage())),
       ];

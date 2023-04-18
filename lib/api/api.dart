@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:fe_football_admin/api/my_api/order_api.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 
@@ -43,6 +44,6 @@ class BaseApi {
 }
 
 class Api extends BaseApi
-    with LogInApi,StadiumApi,TeamApi,UserApi,NewsApi{}
+    with LogInApi,StadiumApi,TeamApi,UserApi,NewsApi,OrderApi{}
 
 final Api api = Api();

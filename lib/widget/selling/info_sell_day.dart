@@ -1,5 +1,8 @@
 import 'package:fe_football_admin/widget/navigation/admin_avata_user.dart';
+import 'package:flutter_format_money_vietnam/flutter_format_money_vietnam.dart';
 import 'package:flutter/material.dart';
+
+import '../../api/api.dart';
 
 class InfoSellday extends StatelessWidget {
   @override
@@ -8,7 +11,11 @@ class InfoSellday extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
       child:
           Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-        Container(
+          FutureBuilder(
+            future: api.getListOrderToday(),
+            builder: (context, snapshot) {
+            if(snapshot.hasData){
+              return Container(
           width: 250,
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
           decoration: BoxDecoration(
@@ -43,7 +50,7 @@ class InfoSellday extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                "15",
+                snapshot.data!.length.toString(),
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 28.0,
@@ -52,7 +59,10 @@ class InfoSellday extends StatelessWidget {
               ),
             ],
           ),
-        ),
+        );
+            }
+            else{ return CircularProgressIndicator();}
+          },),
         SizedBox(
           width: 80,
         ),
@@ -104,7 +114,11 @@ class InfoSellday extends StatelessWidget {
         SizedBox(
           width: 80,
         ),
-        Container(
+        FutureBuilder(
+          future: api.totalPriceToday(),
+          builder: (context, snapshot) {
+          if(snapshot.hasData){
+            return Container(
           width: 250,
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
           decoration: BoxDecoration(
@@ -142,7 +156,7 @@ class InfoSellday extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "2000" + ".000đ",
+                    snapshot.data!.toVND(),
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 28.0,
@@ -153,11 +167,19 @@ class InfoSellday extends StatelessWidget {
               ),
             ],
           ),
-        ),
+        );
+          }
+          else{ return CircularProgressIndicator();}
+
+        },),
         SizedBox(
           width: 80,
         ),
-        Container(
+       FutureBuilder(
+        future: api.totalPriceMonth(),
+        builder: (context, snapshot) {
+         if(snapshot.hasData){
+          return  Container(
           width: 250,
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
           decoration: BoxDecoration(
@@ -192,7 +214,7 @@ class InfoSellday extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                "2000" + ".000đ",
+                snapshot.data!.toVND(),
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 28.0,
@@ -201,7 +223,10 @@ class InfoSellday extends StatelessWidget {
               ),
             ],
           ),
-        ),
+        );
+         }
+         else{return CircularProgressIndicator();}
+       },)
       ]),
     );
   }

@@ -7,6 +7,10 @@ import 'package:fe_football_admin/widget/navigation/admin_avata_user.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../screens/selling/Selling.dart';
+import '../receive_mer/Receive_home.dart';
+import '../selling/create_order/List_Order.dart';
+
 class LeftNavbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -47,6 +51,43 @@ class LeftNavbar extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+                 Row(
+                  children: <Widget>[
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Container(
+                      width: 28.0,
+                      height: 28.0,
+                      alignment: Alignment.centerLeft,
+                      decoration: BoxDecoration(
+                        color: Colors.pinkAccent,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: const Center(
+                        child: Icon(Icons.pending_actions, color: Colors.white),
+                      ),
+                    ),
+                    MaterialButton(
+                      shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(25.0))),
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return new SellingView();
+                        }));
+                      },
+                      child: Text(
+                        "Bán hàng",
+                        style: TextStyle(color: Colors.white, fontSize: 14),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 15,
+                ),
                 Row(
                   children: <Widget>[
                     SizedBox(
@@ -71,11 +112,48 @@ class LeftNavbar extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
-                          return new DashboardView();
+                          return new ReceiveMerchandiseView();
                         }));
                       },
                       child: Text(
-                        "Bán hàng",
+                        "Nhập hàng",
+                        style: TextStyle(color: Colors.white, fontSize: 14),
+                      ),
+                    ),
+                  ],
+                ),
+                 SizedBox(
+                  height: 15,
+                ),
+                Row(
+                  children: <Widget>[
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Container(
+                      width: 28.0,
+                      height: 28.0,
+                      alignment: Alignment.centerLeft,
+                      decoration: BoxDecoration(
+                        color: Colors.pinkAccent,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: const Center(
+                        child: Icon(Icons.create, color: Colors.white),
+                      ),
+                    ),
+                    MaterialButton(
+                      shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(25.0))),
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return new OrderListView();
+                        }));
+                      },
+                      child: Text(
+                        "Đặt sân",
                         style: TextStyle(color: Colors.white, fontSize: 14),
                       ),
                     ),
@@ -118,7 +196,7 @@ class LeftNavbar extends StatelessWidget {
                     ),
                   ],
                 ),
-
+                 
                 SizedBox(
                   height: 30,
                 ),
