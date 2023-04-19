@@ -53,10 +53,6 @@ class _DetailNewsDialogState extends State<DetailNewsDialog> {
           margin: EdgeInsets.only(bottom: 10.0),
           width: double.infinity,
           decoration: BoxDecoration(
-            /*border: Border(bottom: BorderSide(
-          color: Colors.black,
-          width: 1
-        )),*/
             borderRadius: BorderRadius.circular(12.0),
           ),
           child: Padding(

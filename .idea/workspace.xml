@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ff6f8924-b24c-4e9a-9bc6-38d637a3f405" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/news/dialogDetailNews.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/news/dialogDetailNews.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/team/dialogDetailTeam.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/team/dialogDetailTeam.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,7 +80,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681911561983</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="update">
+      <created>1681912240669</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1681912240669</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
