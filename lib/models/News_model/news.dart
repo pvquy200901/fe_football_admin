@@ -42,6 +42,7 @@ class infoNews {
   String? description;
   String? shortDes;
   String? createdTime;
+  String? user;
   List<String>? imagesNews;
 
   infoNews(
@@ -49,6 +50,7 @@ class infoNews {
       this.description,
       this.shortDes,
       this.createdTime,
+      this.user,
       this.imagesNews});
 
   infoNews.fromJson(Map<String, dynamic> json) {
@@ -56,6 +58,7 @@ class infoNews {
     description = json['description'];
     shortDes = json['shortDes'];
     createdTime = json['createdTime'];
+    user = json['user'];
     imagesNews = json['imagesNews'].cast<String>();
   }
 
@@ -65,6 +68,7 @@ class infoNews {
     data['description'] = this.description;
     data['shortDes'] = this.shortDes;
     data['createdTime'] = this.createdTime;
+    data['user'] = this.user;
     data['imagesNews'] = this.imagesNews;
     return data;
   }

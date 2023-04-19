@@ -9,6 +9,7 @@ import '../../config/text.dart';
 import '../../models/News_model/news.dart';
 import '../../widget/dialog/dialog_detail_warning.dart';
 import '../dashboard/sidebar.dart';
+import 'dialogDetailNews.dart';
 
 class NewsView extends StatefulWidget {
   const NewsView({Key? key}) : super(key: key);
@@ -197,7 +198,16 @@ class _NewsViewState extends State<NewsView> {
                                                   IconButton(
                                                     icon: const Icon(Icons.article_outlined),
                                                     color: dark.withOpacity(.7),
-                                                    onPressed: () {},
+                                                    onPressed: () {
+                                                      showDialog(
+                                                          context: context,
+                                                          barrierDismissible: true,
+                                                          builder: (BuildContext cxt) {
+                                                            return new DetailNewsDialog(
+                                                              name: e.code!,
+                                                            );
+                                                          });
+                                                    },
                                                   ),
                                                   IconButton(
                                                     icon: const Icon(Icons.delete),
@@ -285,12 +295,29 @@ class _NewsViewState extends State<NewsView> {
                                               IconButton(
                                                 icon: const Icon(Icons.article_outlined),
                                                 color: dark.withOpacity(.7),
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  showDialog(
+                                                      context: context,
+                                                      barrierDismissible: true,
+                                                      builder: (BuildContext cxt) {
+                                                        return new DetailNewsDialog(
+                                                          name: e.code!,
+                                                        );
+                                                      });
+                                                },
                                               ),
                                               IconButton(
                                                 icon: const Icon(Icons.add_task),
                                                 color: dark.withOpacity(.7),
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  api.confirmNews(e.code).then((value){
+                                                    if (value){
+                                                      Future.delayed(const Duration(seconds: 0)).then((value) async {
+                                                        Get.offAllNamed('/listNews');
+                                                      });
+                                                    }
+                                                  });
+                                                },
                                               ),
                                               IconButton(
                                                 icon: const Icon(Icons.delete),

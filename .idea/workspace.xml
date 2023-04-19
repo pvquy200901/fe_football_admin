@@ -4,34 +4,22 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff6f8924-b24c-4e9a-9bc6-38d637a3f405" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/screens/news/dialogDetailNews.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+    <list default="true" id="ff6f8924-b24c-4e9a-9bc6-38d637a3f405" name="Changes" comment="update">
+      <change afterPath="$PROJECT_DIR$/lib/screens/customer/dialogDetailCustomer.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screens/team/dialogDetailTeam.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/main_dart.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/main_dart.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fe_football_admin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/fe_football_admin.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api/api.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/api.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api/my_api/stadium_api.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/my_api/stadium_api.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/config/route_config.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/config/route_config.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/Stadium_model/Stadium.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/Stadium_model/Stadium.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/api/my_api/news_api.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/my_api/news_api.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/api/my_api/team_api.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/my_api/team_api.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/api/my_api/user_api.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/my_api/user_api.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/News_model/news.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/News_model/news.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/User_model/User.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/User_model/User.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/customer/Customer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/customer/Customer.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/dashboard/Dashboard.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/dashboard/Dashboard.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/news/News.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/news/News.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/selling/Selling.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/selling/Selling.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/stadium/Stadium.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/stadium/Stadium.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/news/dialogDetailNews.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/news/dialogDetailNews.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/team/Team.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/team/Team.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widget/dashboard_widget/total_value.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widget/dashboard_widget/total_value.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widget/dialog/dialog_confirm_ban.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widget/dialog/dialog_confirm_ban.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widget/dialog/dialog_detail_warning.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widget/dialog/dialog_detail_warning.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widget/navigation/nav_leftBar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widget/navigation/nav_leftBar.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widget/selling/info_sell_day.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widget/selling/info_sell_day.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widget/stadium/edit_stadium/item_edit_stadium.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widget/stadium/edit_stadium/item_edit_stadium.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linux/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/linux/flutter/generated_plugin_registrant.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linux/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/linux/flutter/generated_plugins.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/windows/flutter/generated_plugins.cmake" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,15 +52,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;I:/DATN/fe_football_admin&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "io.flutter.reload.alreadyRun": "true",
+    "last_opened_file_path": "I:/DATN/fe_football_admin",
+    "show.migrate.to.gradle.popup": "false"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -82,6 +71,21 @@
       <option name="presentableId" value="Default" />
       <updated>1681531696466</updated>
     </task>
+    <task id="LOCAL-00001" summary="update">
+      <created>1681808925762</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1681808925762</updated>
+    </task>
+    <task id="LOCAL-00002" summary="update">
+      <created>1681808975325</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1681808975325</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -100,5 +104,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint type="dart-exception" />
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

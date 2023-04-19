@@ -36,7 +36,6 @@ import '../../models/User_model/User.dart';
       queryParameters: {'team': team}
       );
       if (response.statusCode == 200) {
-        print("------------------------------${response.data.toString()}");
         return listTeam.fromJson(response.data);
        
       } else {
@@ -44,7 +43,6 @@ import '../../models/User_model/User.dart';
         return listTeam();
       }
     } catch (e) {
-      
       saveLog(e);
       return listTeam();
     }

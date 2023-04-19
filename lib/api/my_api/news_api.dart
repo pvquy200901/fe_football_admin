@@ -39,7 +39,6 @@ mixin NewsApi on BaseApi{
         return [];
       }
     } catch (e) {
-      print("Loi ${e.toString()}");
       saveLog(e);
       return [];
     }
@@ -56,7 +55,7 @@ mixin NewsApi on BaseApi{
       queryParameters: {'news': code}
       );
       if (response.statusCode == 200) {
-        print("------------------------------${response.data.toString()}");
+        print(response.data);
         return infoNews.fromJson(response.data);
        
       } else {
@@ -64,7 +63,6 @@ mixin NewsApi on BaseApi{
         return infoNews();
       }
     } catch (e) {
-      
       saveLog(e);
       return infoNews();
     }

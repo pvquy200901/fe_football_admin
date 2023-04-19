@@ -1,5 +1,7 @@
+import 'package:fe_football_admin/screens/team/dialogDetailTeam.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_admin_scaffold/admin_scaffold.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../api/api.dart';
@@ -8,6 +10,7 @@ import '../../config/text.dart';
 import '../../models/Team_model/team.dart';
 import '../../models/Team_model/team.dart';
 import '../../widget/dialog/dialog_detail_warning.dart';
+import '../../widget/dialog/dialog_team_delete.dart';
 import '../dashboard/sidebar.dart';
 
 class TeamView extends StatefulWidget {
@@ -190,8 +193,8 @@ class _TeamViewState extends State<TeamView> {
                                           height: 90,
                                           decoration: BoxDecoration(
                                             image: DecorationImage(
-                                              image: NetworkImage(
-                                                  e.logo!.isNotEmpty?"http://localhost:50000/api/File/image/${e.logo!}": "https://img3.thuthuatphanmem.vn/uploads/2019/10/01/anh-logo-bong-da_103805455.jpg"),
+                                              image:e.logo!.isNotEmpty?
+                                              NetworkImage("http://localhost:50000/api/File/image/${e.logo!}"): NetworkImage("https://img3.thuthuatphanmem.vn/uploads/2019/10/01/anh-logo-bong-da_103805455.jpg"),
                                               fit: BoxFit.cover,
                                             ),
                                           ),
@@ -205,12 +208,30 @@ class _TeamViewState extends State<TeamView> {
                                             icon: const Icon(
                                                 Icons.article_outlined),
                                             color: dark.withOpacity(.7),
-                                            onPressed: () {},
+                                            onPressed: () {
+                                              showDialog(
+                                                  context: context,
+                                                  barrierDismissible: true,
+                                                  builder: (BuildContext cxt) {
+                                                    return new DetailTeamDialog(
+                                                      team: e.name!,
+                                                    );
+                                                  });
+                                            },
                                           ),
                                           IconButton(
                                             icon: const Icon(Icons.delete),
                                             color: dark.withOpacity(.7),
-                                            onPressed: () {},
+                                            onPressed: () {
+                                              showDialog(
+                                                  context: context,
+                                                  barrierDismissible: true,
+                                                  builder: (BuildContext cxt) {
+                                                    return new DialogTeamDelete(
+                                                      team: e.name!,
+                                                    );
+                                                  });
+                                            },
                                           ),
                                         ],
                                       ))

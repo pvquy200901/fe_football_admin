@@ -2,36 +2,30 @@ import 'package:flutter/material.dart';
 
 import '../../api/api.dart';
 import '../../models/News_model/news.dart';
+import '../../models/User_model/User.dart';
 
-class DetailNewsDialog extends StatefulWidget {
-  final String name;
+class DetailCustomerDialog extends StatefulWidget {
+  final String username;
 
-  DetailNewsDialog(
-      {required this.name,
-        });
+  DetailCustomerDialog(
+      {required this.username,
+      });
 
   @override
-  _DetailNewsDialogState createState() => _DetailNewsDialogState();
+  _DetailCustomerDialogState createState() => _DetailCustomerDialogState();
 }
 
-class _DetailNewsDialogState extends State<DetailNewsDialog> {
+class _DetailCustomerDialogState extends State<DetailCustomerDialog> {
 
-  infoNews info = infoNews();
+  UserModel info = UserModel();
   bool isLoading = false;
-  List<String> img = [];
   loadData() async {
     setState(() {
-        isLoading = true;
+      isLoading = true;
     });
-    info = await api.getInfoNewsForAdmin(widget.name);
-    List<String> img = info.imagesNews!;
+    info = await api.getInfoUser(widget.username);
     setState(() {
-      if(info.imagesNews!.isEmpty){
-        img =["https://static.standard.co.uk/2022/03/15/19/2022-03-15T172625Z_1107313512_UP1EI3F1CFY2Q_RTRMADP_3_SOCCER-CHAMPIONS-MUN-ATM-REPORT.JPG?width=1200"];
-      }
-      else{
-        img =["http://localhost:50000/api/File/image/${info.imagesNews?[0]}"];
-      }
+
       isLoading = false;
     });
   }
@@ -65,8 +59,8 @@ class _DetailNewsDialogState extends State<DetailNewsDialog> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text( "Người đăng: "+
-                  info.user!,
+                Text( "Họ và tên: "+
+                    info.name!,
                   style: TextStyle(
                     fontSize: 18.0,
                     fontWeight: FontWeight.w600,
@@ -75,12 +69,12 @@ class _DetailNewsDialogState extends State<DetailNewsDialog> {
                 SizedBox(height: 10,),
                 Center(
                   child: Container(
-                    width: 500,
-                    height: 400,
+                    width: 300,
+                    height: 300,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8.0),
                       image: DecorationImage(
-                        image: (info.imagesNews!.isEmpty) ? NetworkImage("https://static.standard.co.uk/2022/03/15/19/2022-03-15T172625Z_1107313512_UP1EI3F1CFY2Q_RTRMADP_3_SOCCER-CHAMPIONS-MUN-ATM-REPORT.JPG?width=1200"):NetworkImage("http://localhost:50000/api/File/image/${info.imagesNews![0]}"),
+                        image: (info.avatar!.isEmpty) ? NetworkImage("https://cdn-icons-png.flaticon.com/512/3607/3607444.png"):NetworkImage("http://localhost:50000/api/File/image/${info.avatar!}"),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -89,26 +83,37 @@ class _DetailNewsDialogState extends State<DetailNewsDialog> {
                 SizedBox(
                   height: 10.0,
                 ),
-                if (info.title != "")
-                  Text("Tiêu đề: "+
-                    info.title!,
+                if (info.email != "")
+                  Text("Email: "+
+                      info.email!,
                     style: TextStyle(color: Colors.black, fontSize: 16.0),
                   ),
                 SizedBox(
                   height: 10.0,
                 ),
-                if (info.description != "")
-                  Text("Miêu tả: "+
-                      info.description!,
+                if (info.phone != "")
+                  Text("Số điện thoại: "+
+                      info.phone!,
                     style: TextStyle(color: Colors.black, fontSize: 16.0),
                   ),
 
                 SizedBox(
                   height: 10.0,
                 ),
-                if (info.createdTime != "")
-                  Text("Thời gian: "+
-                      info.createdTime!,
+                info.team != ""?
+                  Text("Đội: "+
+                      info.team!,
+                    style: TextStyle(color: Colors.black, fontSize: 16.0),
+                  ): Text("Đội: "+
+                    "Chưa gia nhập đội bóng",
+                  style: TextStyle(color: Colors.black, fontSize: 16.0),
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+                if (info.birthday != "")
+                  Text("Ngày sinh: "+
+                      info.birthday!,
                     style: TextStyle(color: Colors.black, fontSize: 16.0),
                   ),
               ],
