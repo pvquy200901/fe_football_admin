@@ -30,22 +30,22 @@ class _DetailTeamDialogState extends State<DetailTeamDialog> {
     info = await api.getInfoTeamForAdmin(widget.team);
     setState(() {
       if(info.imageTeam == null){
-        imgList =["https://cdn-icons-png.flaticon.com/512/3607/3607444.png"];
+        imgList =[];
       }
       else{
         imgList = info.imageTeam!;
       }
       imageSliders = imgList
           .map((item) => Container(
-            margin: EdgeInsets.all(5.0),
-            child: ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                child: Stack(
-                  children: <Widget>[
-                    Image.network("http://localhost:50000/api/File/image/${item}", fit: BoxFit.cover, width: 1000.0),
-                  ],
-                )),
-          ))
+        margin: EdgeInsets.all(5.0),
+        child: ClipRRect(
+            borderRadius: BorderRadius.all(Radius.circular(5.0)),
+            child: Stack(
+              children: <Widget>[
+                Image.network("http://localhost:50000/api/File/image/$item", fit: BoxFit.cover, width: 1000.0),
+              ],
+            )),
+      ))
           .toList();
       isLoading = false;
     });
@@ -58,38 +58,35 @@ class _DetailTeamDialogState extends State<DetailTeamDialog> {
   }
   @override
   Widget build(BuildContext context) {
-    return (isLoading) ? CircularProgressIndicator():SingleChildScrollView(
-      scrollDirection: Axis.vertical,
-      child: Scaffold(
-        appBar: AppBar(title: Text('Image slider demo')),
-        //contentPadding: EdgeInsets.all(50),
-       /* title: Center(child: Text("Xem chi tiết")),*/
-        body: Container(
-          margin: EdgeInsets.only(bottom: 10.0),
+    return (isLoading) ? const CircularProgressIndicator():Scaffold(
+      appBar: AppBar(title: const Text('Image slider demo')),
+      //contentPadding: EdgeInsets.all(50),
+      /* title: Center(child: Text("Xem chi tiết")),*/
+      body: Container(
+        margin: EdgeInsets.only(bottom: 10.0),
 
-          decoration: BoxDecoration(
-            /*border: Border(bottom: BorderSide(
-          color: Colors.black,
-          width: 1
-        )),*/
-            borderRadius: BorderRadius.circular(12.0),
-          ),
-          child: Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text( "Tên đội: "+
-                    info.name!,
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.w600,
-                  ),
+        decoration: BoxDecoration(
+          /*border: Border(bottom: BorderSide(
+        color: Colors.black,
+        width: 1
+      )),*/
+          borderRadius: BorderRadius.circular(12.0),
+        ),
+        child: Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text( "Tên đội: ${info.name??''}",
+                style: const TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.w600,
                 ),
-                SizedBox(height: 10,),
-                Center(
-                  child: CarouselSlider(
+              ),
+              SizedBox(height: 10,),
+              Center(
+                child: CarouselSlider(
                     options: CarouselOptions(
                       aspectRatio: 2.0,
                       enlargeCenterPage: true,
@@ -98,57 +95,56 @@ class _DetailTeamDialogState extends State<DetailTeamDialog> {
                       autoPlay: true,
                     ),
                     items: imageSliders
-                  ),
                 ),
-               /* SizedBox(
-                  height: 10.0,
+              ),
+              /* SizedBox(
+                height: 10.0,
+              ),
+              if (info.email != "")
+                Text("Email: "+
+                    info.email!,
+                  style: TextStyle(color: Colors.black, fontSize: 16.0),
                 ),
-                if (info.email != "")
-                  Text("Email: "+
-                      info.email!,
-                    style: TextStyle(color: Colors.black, fontSize: 16.0),
-                  ),
-                SizedBox(
-                  height: 10.0,
+              SizedBox(
+                height: 10.0,
+              ),
+              if (info.phone != "")
+                Text("Số điện thoại: "+
+                    info.phone!,
+                  style: TextStyle(color: Colors.black, fontSize: 16.0),
                 ),
-                if (info.phone != "")
-                  Text("Số điện thoại: "+
-                      info.phone!,
-                    style: TextStyle(color: Colors.black, fontSize: 16.0),
-                  ),
 
-                SizedBox(
-                  height: 10.0,
-                ),
-                info.team != ""?
-                Text("Đội: "+
-                    info.team!,
+              SizedBox(
+                height: 10.0,
+              ),
+              info.team != ""?
+              Text("Đội: "+
+                  info.team!,
+                style: TextStyle(color: Colors.black, fontSize: 16.0),
+              ): Text("Đội: "+
+                  "Chưa gia nhập đội bóng",
+                style: TextStyle(color: Colors.black, fontSize: 16.0),
+              ),
+              SizedBox(
+                height: 10.0,
+              ),
+              if (info.birthday != "")
+                Text("Ngày sinh: "+
+                    info.birthday!,
                   style: TextStyle(color: Colors.black, fontSize: 16.0),
-                ): Text("Đội: "+
-                    "Chưa gia nhập đội bóng",
-                  style: TextStyle(color: Colors.black, fontSize: 16.0),
-                ),
-                SizedBox(
-                  height: 10.0,
-                ),
-                if (info.birthday != "")
-                  Text("Ngày sinh: "+
-                      info.birthday!,
-                    style: TextStyle(color: Colors.black, fontSize: 16.0),
-                  ),*/
-              ],
-            ),
+                ),*/
+            ],
           ),
         ),
-       /* actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: Text('OK'),
-          ),
-        ],*/
       ),
+      /* actions: [
+        TextButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          child: Text('OK'),
+        ),
+      ],*/
     );
   }
 }
