@@ -42,34 +42,7 @@ class _DetailTeamDialogState extends State<DetailTeamDialog> {
                 borderRadius: BorderRadius.all(Radius.circular(5.0)),
                 child: Stack(
                   children: <Widget>[
-                    (item.isEmpty) ? Image.network("https://cdn-icons-png.flaticon.com/512/3607/3607444.png", fit: BoxFit.cover, width: 1000.0):Image.network("http://localhost:50000/api/File/image/${item}", fit: BoxFit.cover, width: 1000.0),
-                    Positioned(
-                      bottom: 0.0,
-                      left: 0.0,
-                      right: 0.0,
-                      child: Container(
-                        decoration: const BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              Color.fromARGB(200, 0, 0, 0),
-                              Color.fromARGB(0, 0, 0, 0)
-                            ],
-                            begin: Alignment.bottomCenter,
-                            end: Alignment.topCenter,
-                          ),
-                        ),
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 10.0, horizontal: 20.0),
-                        child: Text(
-                          'No. ${imgList.indexOf(item)} image',
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
+                    Image.network("http://localhost:50000/api/File/image/${item}", fit: BoxFit.cover, width: 1000.0),
                   ],
                 )),
           ))
@@ -118,17 +91,13 @@ class _DetailTeamDialogState extends State<DetailTeamDialog> {
                 Center(
                   child: CarouselSlider(
                     options: CarouselOptions(
-                     /* aspectRatio: 2.0,
+                      aspectRatio: 2.0,
                       enlargeCenterPage: true,
                       enableInfiniteScroll: false,
                       initialPage: 2,
-                      autoPlay: true,*/
+                      autoPlay: true,
                     ),
-                    items: imgList
-                        .map((item) => Center(
-                            child:
-                            Image.network("http://localhost:50000/api/File/image/${item}", fit: BoxFit.cover, width: 1000)))
-                        .toList(),
+                    items: imageSliders
                   ),
                 ),
                /* SizedBox(
