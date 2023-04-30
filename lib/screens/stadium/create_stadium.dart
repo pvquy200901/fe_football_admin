@@ -1,8 +1,11 @@
 import 'package:fe_football_admin/config/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_admin_scaffold/admin_scaffold.dart';
+import 'package:flutter_format_money_vietnam/flutter_format_money_vietnam.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import '../../api/api.dart';
 import '../../config/style.dart';
@@ -19,13 +22,16 @@ class createStadiumView extends StatefulWidget {
 
 class _createStadiumViewState extends State<createStadiumView> {
 
-  LatLng? pickedLocation;
+
   bool isLoading = false;
   int i = 0;
   final _name = TextEditingController();
   final _address = TextEditingController();
   final _contact = TextEditingController();
   final _price = TextEditingController();
+  String _latitude = "";
+  String _longtitude ="";
+  LatLng? pickedLocation;
 
   loadingData() async {
     setState(() {
@@ -190,8 +196,9 @@ class _createStadiumViewState extends State<createStadiumView> {
                                       );
                                       setState(() {
                                         pickedLocation = result;
+                                        _latitude = pickedLocation!.latitude.toString();
+                                        _longtitude = pickedLocation!.longitude.toString();
                                       });
-
                                     },
                                     icon: const Icon(Icons.add_location_alt_outlined),
                                     color: Colors.cyan,
@@ -247,30 +254,40 @@ class _createStadiumViewState extends State<createStadiumView> {
                 child: ButtonTheme(
                   child: ElevatedButton(
                     onPressed: () {
-                      /*print(pickedLocation?.latitude);
-                      print(pickedLocation?.longitude);*/
-                      showDialog(
-                          context: context,
-                          builder: (context) {
-                            return AlertDialog(
-                              content: Text('Loading...'),
-                            );
-                          });
                       var data = {
                         "name": _name.text,
                         "address": _address.text,
                         "contact": _contact.text,
-                        "price": int.parse(_price.text),
-                        "latitude": pickedLocation!.latitude.toString(),
-                        "longtitude": pickedLocation!.longitude.toString(),
+                        "price": _price.text,
+                        "latitude": _latitude,
+                        "longtitude": _longtitude,
                       };
-                      print(data);
                       api.createStadium(data).then((value) {
                         if (value) {
                           Future.delayed(const Duration(seconds: 0))
                               .then((value) async {
                             Get.offAllNamed('/listStadium');
                           });
+                          Fluttertoast.showToast(
+                              msg: "Thêm sân thành công",
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.TOP_RIGHT,
+                              timeInSecForIosWeb: 1,
+                              backgroundColor: Colors.green,
+                              textColor: Colors.white,
+                              fontSize: 16.0
+                          );
+                        }
+                        else{
+                          Fluttertoast.showToast(
+                              msg: "Không thể thêm sân",
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.TOP_RIGHT,
+                              timeInSecForIosWeb: 1,
+                              backgroundColor: Colors.redAccent,
+                              textColor: Colors.white,
+                              fontSize: 16.0
+                          );
                         }
                       });
 

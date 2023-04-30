@@ -5,9 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff6f8924-b24c-4e9a-9bc6-38d637a3f405" name="Changes" comment="update">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/news/dialogDetailNews.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/news/dialogDetailNews.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/api/my_api/order_api.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/my_api/order_api.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/api/my_api/stadium_api.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/my_api/stadium_api.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/Order_model/listOrder.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/Order_model/listOrder.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/dashboard/overView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/dashboard/overView.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/stadium/Stadium.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/stadium/Stadium.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/stadium/create_stadium.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/stadium/create_stadium.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/stadium/dialogCreateStadium.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/stadium/dialogCreateStadium.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/stadium/map.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/stadium/map.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/team/dialogDetailTeam.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/team/dialogDetailTeam.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widget/selling/create_order/landing_stadium.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widget/selling/create_order/landing_stadium.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widget/selling/create_order/order_create.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widget/selling/create_order/order_create.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widget/stadium/edit_stadium/item_edit_stadium.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widget/stadium/edit_stadium/item_edit_stadium.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/linux/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/flutter/generated_plugin_registrant.h" beforeDir="false" afterPath="$PROJECT_DIR$/linux/flutter/generated_plugin_registrant.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/linux/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/flutter/generated_plugin_registrant.h" beforeDir="false" afterPath="$PROJECT_DIR$/windows/flutter/generated_plugin_registrant.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/windows/flutter/generated_plugins.cmake" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,16 +60,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;I:/DATN/fe_football_admin&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "io.flutter.reload.alreadyRun": "true",
+    "last_opened_file_path": "D:/fe_datn_admin/fe_football_admin_final",
+    "show.migrate.to.gradle.popup": "false"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

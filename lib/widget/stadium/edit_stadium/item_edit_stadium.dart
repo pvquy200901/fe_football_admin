@@ -229,7 +229,6 @@ class _ItemEditStadiumPageState extends State<ItemEditStadium> {
                   print("Đã bấm");
                   image = await _picker.pickImage(source: ImageSource.gallery);
                   if (image != null) {
-                    print("=====================${image}");
                     Uint8List bytes = await image!.readAsBytes();
                     var dataImage = dio.MultipartFile.fromBytes(bytes,
                         filename: image!.name,

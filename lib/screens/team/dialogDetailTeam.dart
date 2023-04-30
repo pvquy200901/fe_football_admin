@@ -61,7 +61,7 @@ class _DetailTeamDialogState extends State<DetailTeamDialog> {
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
+    return (isLoading)?CircularProgressIndicator(): AlertDialog(
       title: Center(child: Text("Xem chi tiết")),
       content: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -77,52 +77,58 @@ class _DetailTeamDialogState extends State<DetailTeamDialog> {
           SizedBox(
             height: 10,
           ),
-          CarouselSlider(
-              options: CarouselOptions(
-                aspectRatio: 2.0,
-                enlargeCenterPage: true,
-                enableInfiniteScroll: false,
-                initialPage: 2,
-                autoPlay: true,
-              ),
-              items: imageSliders),
+          Expanded(
+            child: SizedBox(
+              width: 500,
+              height: 500,
+              child: CarouselSlider(
+                  options: CarouselOptions(
+                    aspectRatio: 2.0,
+                    enlargeCenterPage: true,
+                    enableInfiniteScroll: false,
+                    initialPage: 2,
+                    autoPlay: true,
+                  ),
+                  items: imageSliders),
+            ),
+          ),
 
-          /* SizedBox(
-              height: 10.0,
-            ),
-            if (info.email != "")
-              Text("Email: "+
-                  info.email!,
-                style: TextStyle(color: Colors.black, fontSize: 16.0),
-              ),
-            SizedBox(
-              height: 10.0,
-            ),
-            if (info.phone != "")
-              Text("Số điện thoại: "+
-                  info.phone!,
-                style: TextStyle(color: Colors.black, fontSize: 16.0),
-              ),
-
-            SizedBox(
-              height: 10.0,
-            ),
-            info.team != ""?
-            Text("Đội: "+
-                info.team!,
-              style: TextStyle(color: Colors.black, fontSize: 16.0),
-            ): Text("Đội: "+
-                "Chưa gia nhập đội bóng",
+          SizedBox(
+            height: 10.0,
+          ),
+          if (info.name != "")
+            Text("Tên đội: "+
+                info.name!,
               style: TextStyle(color: Colors.black, fontSize: 16.0),
             ),
-            SizedBox(
-              height: 10.0,
+          SizedBox(
+            height: 10.0,
+          ),
+          if (info.phone != "")
+            Text("Số điện thoại: "+
+                info.phone!,
+              style: TextStyle(color: Colors.black, fontSize: 16.0),
             ),
-            if (info.birthday != "")
-              Text("Ngày sinh: "+
-                  info.birthday!,
-                style: TextStyle(color: Colors.black, fontSize: 16.0),
-              ),*/
+
+          SizedBox(
+            height: 10.0,
+          ),
+          info.phone != ""?
+          Text("Địa chỉ: "+
+              info.address!,
+            style: TextStyle(color: Colors.black, fontSize: 16.0),
+          ): Text("Địa chỉ: "+
+              "Không có",
+            style: TextStyle(color: Colors.black, fontSize: 16.0),
+          ),
+          SizedBox(
+            height: 10.0,
+          ),
+          if (info.quality != "")
+            Text("Số lượng: "+
+                info.quality.toString(),
+              style: TextStyle(color: Colors.black, fontSize: 16.0),
+            ),
         ],
       ),
       actions: [
@@ -133,6 +139,6 @@ class _DetailTeamDialogState extends State<DetailTeamDialog> {
           child: Text('OK'),
         ),
       ],
-    );
+    ) ;
   }
 }

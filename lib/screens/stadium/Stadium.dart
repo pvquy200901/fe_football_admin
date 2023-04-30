@@ -1,7 +1,15 @@
-
+import 'package:fe_football_admin/main.dart';
+import 'package:fe_football_admin/screens/stadium/Stadium_Create.dart';
+import 'package:fe_football_admin/widget/customer/item_list_customer.dart';
+import 'package:fe_football_admin/widget/customer/nav_customer/nav_top_list_customer.dart';
+import 'package:fe_football_admin/widget/dashboard_widget/manager_centerNav.dart';
+import 'package:fe_football_admin/widget/dashboard_widget/total_value.dart';
+import 'package:fe_football_admin/widget/navigation/nav_leftBar.dart';
+import 'package:fe_football_admin/widget/stadium/item_list_stadium.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_admin_scaffold/admin_scaffold.dart';
 import 'package:flutter_format_money_vietnam/flutter_format_money_vietnam.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -9,6 +17,7 @@ import '../../api/api.dart';
 import '../../config/style.dart';
 import '../../config/text.dart';
 import '../../models/Stadium_model/Stadium.dart';
+import '../../widget/dialog/dialog_detail_warning.dart';
 import '../dashboard/sidebar.dart';
 import 'create_stadium.dart';
 import 'dialogCreateStadium.dart';
@@ -55,11 +64,11 @@ class _StadiumViewState extends State<StadiumView> {
             children: [
               Visibility(
                   child: CustomText(
-                text: 'Quản lý hệ thống',
-                color: lightgrey,
-                size: 20,
-                fontWeight: FontWeight.bold,
-              )),
+                    text: 'Quản lý hệ thống',
+                    color: lightgrey,
+                    size: 20,
+                    fontWeight: FontWeight.bold,
+                  )),
               Expanded(
                 child: Container(),
               ),
@@ -254,6 +263,7 @@ class _StadiumViewState extends State<StadiumView> {
                                                 price: e.price!,
                                                 latitude: e.latitude!,
                                                 longtitude: e.longtitude!,
+                                                images: e.images!,
                                               );
                                             });
                                       },
@@ -267,6 +277,26 @@ class _StadiumViewState extends State<StadiumView> {
                                             Future.delayed(const Duration(seconds: 0)).then((value) async {
                                               Get.offAllNamed('/listStadium');
                                             });
+                                            Fluttertoast.showToast(
+                                                msg: "Đã xóa thành công",
+                                                toastLength: Toast.LENGTH_SHORT,
+                                                gravity: ToastGravity.TOP_RIGHT,
+                                                timeInSecForIosWeb: 1,
+                                                backgroundColor: Colors.green,
+                                                textColor: Colors.white,
+                                                fontSize: 16.0
+                                            );
+                                          }
+                                          else{
+                                            Fluttertoast.showToast(
+                                                msg: "Không thể xóa",
+                                                toastLength: Toast.LENGTH_SHORT,
+                                                gravity: ToastGravity.TOP_RIGHT,
+                                                timeInSecForIosWeb: 1,
+                                                backgroundColor: Colors.redAccent,
+                                                textColor: Colors.white,
+                                                fontSize: 16.0
+                                            );
                                           }
                                         });
                                       },

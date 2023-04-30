@@ -55,11 +55,4 @@ class _MapPickerWidgetState extends State<MapPickerWidget> {
       ),
     );
   }
-
-
 }
-
-
-
-
-

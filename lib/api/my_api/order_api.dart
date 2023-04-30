@@ -97,7 +97,24 @@ mixin OrderApi on BaseApi {
       return 0;
     }
   }
+  Future<double> totalPriceYear() async {
+    const url = '/api/Admin/getTotalPriceInYear';
+    try {
+      Response response = await dio.get(url,
+          options: Options(
+            headers: {
+              'Content-Type': 'application/json',
+              'accept': '*/*',
+              'token': appController.token
+            },
+          ));
 
+      return response.data;
+    } catch (e) {
+      saveLog(e);
+      return 0;
+    }
+  }
   Future<double> totalPriceMonth() async {
     const url = '/api/Admin/getTotalPriceInMonth';
     try {

@@ -20,37 +20,6 @@ class LandingStadium extends StatefulWidget {
 }
 class _LandingStadiumState extends State<LandingStadium> {
   SideBarWidget _sideBarWidget = SideBarWidget();
-  List<Widget> pageChildren(double width) {
-    return <Widget>[
-      FutureBuilder(
-        future: api.getListStadium(),
-        builder: (context, snapshot) {
-        if(snapshot.hasData){
-          return ListView(
-        shrinkWrap: true,
-        physics: NeverScrollableScrollPhysics(),
-        children: <Widget>[
-          Wrap(
-              direction: Axis.horizontal,
-              alignment: WrapAlignment.center,
-              spacing: 8.0, // gap between adjacent chips
-              runSpacing: 4.0, // gap between lines
-              children: <Widget>[
-                for (int i = 0; i < snapshot.data!.length; i++)
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ItemStadium(model: snapshot.data![i]),
-                    ],
-                  ),
-              ]),
-        ],
-      );
-        }
-        else{return CircularProgressIndicator();}
-      },)
-    ];
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -149,7 +118,7 @@ class _LandingStadiumState extends State<LandingStadium> {
             if(snapshot.hasData){
               return ListView(
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
+                physics: ScrollPhysics(),
                 children: <Widget>[
                   Wrap(
                       direction: Axis.horizontal,

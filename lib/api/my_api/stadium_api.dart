@@ -117,6 +117,25 @@ mixin StadiumApi on BaseApi {
       return "";
     }
   }
+  Future<bool> removeImageStadium(name,code) async {
+    const url = '/api/Admin/removeImageStadium';
+    try {
+      Response response = await dio.delete(url,
+          options: Options(
+            headers: {
+              'Content-Type': 'application/json',
+              'accept': '*/*',
+              'token': appController.token
+            },
+          ),
+          queryParameters: {'stadium': name, 'code':code});
+
+      return true;
+    } catch (e) {
+      saveLog(e);
+      return false;
+    }
+  }
 
   Future<infoStadium> getInfoStadium(name) async{
     const url = '/api/Admin/getInfoStadiumForAdmin';

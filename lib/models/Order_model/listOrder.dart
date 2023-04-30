@@ -1,13 +1,15 @@
 class listOrder {
-    String? code;
+  String? code;
+  String? user;
   String? date;
   String? time;
   String? nameStadium;
 
-  listOrder({this.date, this.time, this.nameStadium, this.code});
+  listOrder({this.date, this.time, this.nameStadium, this.code, this.user});
 
   listOrder.fromJson(Map<String, dynamic> json) {
     code = json['code'];
+    user = json['user'];
     date = json['date'];
     time = json['time'];
     nameStadium = json['nameStadium'];
@@ -18,6 +20,7 @@ class listOrder {
     data['code'] = this.code;
     data['date'] = this.date;
     data['time'] = this.time;
+    data['user'] = this.user;
     data['nameStadium'] = this.nameStadium;
     return data;
   }
@@ -36,15 +39,15 @@ class infoOrder {
 
   infoOrder(
       {this.nameStadium,
-      this.code,
-      this.priceStadium,
-      this.date,
-      this.orderTime,
-      this.startTime,
-      this.endTime,
-      this.price,
-      this.state,
-      this.address});
+        this.code,
+        this.priceStadium,
+        this.date,
+        this.orderTime,
+        this.startTime,
+        this.endTime,
+        this.price,
+        this.state,
+        this.address});
 
   infoOrder.fromJson(Map<String, dynamic> json) {
     nameStadium = json['nameStadium'];
