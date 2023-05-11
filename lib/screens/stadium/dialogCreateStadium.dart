@@ -77,7 +77,7 @@ class _EditInfoDialogState extends State<EditInfoDialog> {
                           right: 5.0,
                           child: IconButton(
                             icon: const Icon(Icons.delete),
-                            color: Colors.white,
+                            color: Colors.black,
                             onPressed: () {
                               api.removeImageStadium(widget.name, item).then((value){
                                 if(value){
@@ -178,7 +178,7 @@ class _EditInfoDialogState extends State<EditInfoDialog> {
           ),
           IconButton(
               icon: const Icon(Icons.image),
-              color: Colors.white,
+              color: Colors.black87,
               onPressed: () async {
                 image = await _picker.pickImage(source: ImageSource.gallery);
                 if (image != null) {

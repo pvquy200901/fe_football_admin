@@ -23,6 +23,7 @@ class DashboardView extends StatefulWidget {
 class _DashboardViewState extends State<DashboardView> {
 
   SideBarWidget _sideBarWidget = SideBarWidget();
+  bool _isContainerVisible = false;
   @override
   Widget build(BuildContext context) {
     return AdminScaffold(
@@ -38,33 +39,6 @@ class _DashboardViewState extends State<DashboardView> {
               )),
           Expanded(
             child: Container(),
-          ),
-          IconButton(
-            icon: const Icon(Icons.settings),
-            color: dark.withOpacity(.7),
-            onPressed: () {},
-          ),
-          Stack(
-            children: [
-              IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  Icons.notifications,
-                  color: dark.withOpacity(.7),
-                ),
-              ),
-              Positioned(
-                  top: 7,
-                  right: 7,
-                  child: Container(
-                      width: 12,
-                      height: 12,
-                      padding: const EdgeInsets.all(4),
-                      decoration: BoxDecoration(
-                          color: blue,
-                          shape: BoxShape.circle,
-                          border: Border.all(color: light, width: 2))))
-            ],
           ),
           Container(
             width: 1,
@@ -85,44 +59,72 @@ class _DashboardViewState extends State<DashboardView> {
             child: Container(
               padding: const EdgeInsets.all(2),
               margin: const EdgeInsets.all(2),
-              child: CircleAvatar(
-                backgroundColor: light,
-                child: Icon(
-                  Icons.person_outline,
-                  color: dark,
-                ),
+              child: Column(
+                children: [
+                  CircleAvatar(
+                    backgroundColor: light,
+                    child:  IconButton(
+                      icon: const Icon(Icons.person),
+                      color: dark.withOpacity(.7),
+                      onPressed: () {
+                        setState(() {
+                          _isContainerVisible = !_isContainerVisible;
+                        });
+                      },
+                    ),
+                  ),
+                ],
               ),
             ),
-          )
+          ),
+
         ],
       ),
       iconTheme: IconThemeData(
         color: dark,
       ),
       backgroundColor: light,
-      // iconTheme: IconThemeData(
-      //   color: Colors.white,
-      // ),
-      // title: Text(
-      //   'Gobike dashboard'.toUpperCase(),
-      //   style: TextStyle(
-      //     color: Colors.white,
-      //     fontWeight: FontWeight.w900,
-      //     fontSize: 19,
-      //   ),
-      // ),
-      ),
 
+      ),
         backgroundColor: light,
         sideBar: _sideBarWidget.SideBarMenus(context, '/dashboardView'),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(10.0),
-            child: Column(
+            child: Stack(
               children: <Widget>[
                 Visibility(
                   //   visible:_firebaseServices!.bursary.where("email",isEqualTo: user!.email).where("stackholder", isEqualTo: 'super-admin').snapshots()!=null,
                     child: OverviewCards()),
+                Positioned(
+                  top: -25,
+                  right: -15,
+                  child: Visibility(
+                  visible: _isContainerVisible,
+                  child: Container(
+                    margin: EdgeInsets.all(20.0),
+                    padding: EdgeInsets.all(10.0),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 2,
+                          blurRadius: 5,
+                          offset: Offset(0, 3),
+                        ),
+                      ],
+                    ),
+                    child: TextButton(onPressed: () =>{
+
+                    }, child: Text(
+                      "Đăng xuất",
+                      style: TextStyle(
+                        fontSize: 15
+                      ),
+                    ))
+                  ),
+                ),)
               ],
             ),
           ),

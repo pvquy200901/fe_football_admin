@@ -31,12 +31,12 @@ class SideBarWidget{
         AdminMenuItem(
           title: 'Đặt sân',
           route: '/order',
-          icon: Icons.person_outlined,
+          icon: Icons.reorder,
         ),
         AdminMenuItem(
           title: 'Quản lý bài đăng',
           route: '/listNews',
-          icon: Icons.person_outlined,
+          icon: Icons.newspaper,
         ),
         AdminMenuItem(
           title: 'Quản lý khách hàng',
@@ -46,7 +46,7 @@ class SideBarWidget{
         AdminMenuItem(
           title: 'Quản lý đội bóng',
           route: '/listTeam',
-          icon: Icons.person_outlined,
+          icon: Icons.groups,
         ),
 
 

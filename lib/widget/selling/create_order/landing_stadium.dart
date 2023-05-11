@@ -37,44 +37,6 @@ class _LandingStadiumState extends State<LandingStadium> {
               Expanded(
                 child: Container(),
               ),
-              IconButton(
-                icon: const Icon(Icons.settings),
-                color: dark.withOpacity(.7),
-                onPressed: () {},
-              ),
-              Stack(
-                children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.notifications,
-                      color: dark.withOpacity(.7),
-                    ),
-                  ),
-                  Positioned(
-                      top: 7,
-                      right: 7,
-                      child: Container(
-                          width: 12,
-                          height: 12,
-                          padding: const EdgeInsets.all(4),
-                          decoration: BoxDecoration(
-                              color: blue,
-                              shape: BoxShape.circle,
-                              border: Border.all(color: light, width: 2))))
-                ],
-              ),
-              Container(
-                width: 1,
-                height: 22,
-                color: lightgrey,
-              ),
-              const SizedBox(
-                height: 24,
-              ),
-              const SizedBox(
-                width: 16,
-              ),
               Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -83,15 +45,23 @@ class _LandingStadiumState extends State<LandingStadium> {
                 child: Container(
                   padding: const EdgeInsets.all(2),
                   margin: const EdgeInsets.all(2),
-                  child: CircleAvatar(
-                    backgroundColor: light,
-                    child: Icon(
-                      Icons.person_outline,
-                      color: dark,
-                    ),
+                  child: Column(
+                    children: [
+                      CircleAvatar(
+                        backgroundColor: light,
+                        child:  IconButton(
+                          icon: const Icon(Icons.person),
+                          color: dark.withOpacity(.7),
+                          onPressed: () {
+                            setState(() {
+                            });
+                          },
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-              )
+              ),
             ],
           ),
           iconTheme: IconThemeData(

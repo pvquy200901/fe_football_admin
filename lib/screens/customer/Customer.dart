@@ -58,33 +58,7 @@ class _CustomerViewState extends State<CustomerView> {
             Expanded(
               child: Container(),
             ),
-            IconButton(
-              icon: const Icon(Icons.settings),
-              color: dark.withOpacity(.7),
-              onPressed: () {},
-            ),
-            Stack(
-              children: [
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.notifications,
-                    color: dark.withOpacity(.7),
-                  ),
-                ),
-                Positioned(
-                    top: 7,
-                    right: 7,
-                    child: Container(
-                        width: 12,
-                        height: 12,
-                        padding: const EdgeInsets.all(4),
-                        decoration: BoxDecoration(
-                            color: blue,
-                            shape: BoxShape.circle,
-                            border: Border.all(color: light, width: 2))))
-              ],
-            ),
+
             Container(
               width: 1,
               height: 22,

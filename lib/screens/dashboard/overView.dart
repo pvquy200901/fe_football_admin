@@ -2,6 +2,7 @@ import 'package:fe_football_admin/models/Team_model/team.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_format_money_vietnam/flutter_format_money_vietnam.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
@@ -257,7 +258,9 @@ class _OverviewCardsState extends State<OverviewCards> {
                                     api.confirmOrder(e.code).then((value) {
                                       if (value) {
                                         setState(() {
-
+                                          Future.delayed(const Duration(seconds: 0)).then((value) async {
+                                            Get.offAllNamed('/dashboardView');
+                                          });
                                         });
                                         Fluttertoast.showToast(
                                             msg: "Đã duyệt thành công",
@@ -289,7 +292,11 @@ class _OverviewCardsState extends State<OverviewCards> {
                                   onPressed: () {
                                     api.cancelOrder(e.code).then((value) {
                                       if (value){
-
+                                        setState(() {
+                                          Future.delayed(const Duration(seconds: 0)).then((value) async {
+                                            Get.offAllNamed('/dashboardView');
+                                          });
+                                        });
                                         Fluttertoast.showToast(
                                             msg: "Đã xóa thành công",
                                             toastLength: Toast.LENGTH_SHORT,
