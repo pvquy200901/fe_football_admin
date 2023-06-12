@@ -453,7 +453,7 @@ class _OverviewCardsState extends State<OverviewCards> {
   }
 }
 
-class WaveClipper extends CustomClipper<Path> {
+/*class WaveClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     var path = new Path();
@@ -486,4 +486,4 @@ class WaveClipper extends CustomClipper<Path> {
     return false; //if new instance have different instance than old instance
     //then you must return true;
   }
-}
+}*/

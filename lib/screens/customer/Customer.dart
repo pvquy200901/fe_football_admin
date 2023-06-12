@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../api/api.dart';
 import '../../config/style.dart';
 import '../../config/text.dart';
+import '../../controller/app_controller.dart';
 import '../../models/User_model/User.dart';
 import '../dashboard/sidebar.dart';
 import 'dialogDetailCustomer.dart';
@@ -38,6 +39,9 @@ class _CustomerViewState extends State<CustomerView> {
   void initState() {
     // TODO: implement initState
     loadingData();
+    if(appController.token.isEmpty){
+      appController.getLoginData();
+    }
     super.initState();
   }
   @override

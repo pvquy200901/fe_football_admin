@@ -41,7 +41,7 @@ dependencies:
   fluttertoast: ^8.1.1
   flutter_masked_text: ^0.8.0
   prefs: ^3.5.0
-  syncfusion_flutter_datagrid: ^20.3.57
+  syncfusion_flutter_datagrid: ^21.2.8
   universal_html: ^2.0.8
   intl: ^0.17.0
   dio: ^4.0.6
@@ -56,6 +56,7 @@ dependencies:
   flutter_admin_scaffold: ^1.2.0
   percent_indicator: ^4.2.3
   google_maps_flutter: ^2.2.0
+  scrollable_table_view: ^1.0.1
   location: ^4.4.0
   mapbox_gl: ^0.16.0
   google_maps: ^6.2.0

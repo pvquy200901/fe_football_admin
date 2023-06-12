@@ -69,7 +69,7 @@ class _EditInfoDialogState extends State<EditInfoDialog> {
                     child: Stack(
                       children: <Widget>[
                         Image.network(
-                            "http://localhost:50000/api/File/image/$item",
+                    (widget.images.length == 0)?"https://images2.thanhnien.vn/Uploaded/taynguyen/2022_03_16/oldtrafford-afp-3474.jpeg":"http://localhost:50000/api/File/image/$item",
                             fit: BoxFit.cover,
                             width: 1000.0),
                         Positioned(

@@ -1,3 +1,4 @@
+import 'package:fe_football_admin/controller/app_controller.dart';
 import 'package:fe_football_admin/main.dart';
 import 'package:fe_football_admin/screens/dashboard/sidebar.dart';
 import 'package:fe_football_admin/widget/dashboard_widget/ban/violator_list.dart';
@@ -24,6 +25,16 @@ class _DashboardViewState extends State<DashboardView> {
 
   SideBarWidget _sideBarWidget = SideBarWidget();
   bool _isContainerVisible = false;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    if(appController.token.isEmpty){
+      appController.getLoginData();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return AdminScaffold(
@@ -94,7 +105,6 @@ class _DashboardViewState extends State<DashboardView> {
             child: Stack(
               children: <Widget>[
                 Visibility(
-                  //   visible:_firebaseServices!.bursary.where("email",isEqualTo: user!.email).where("stackholder", isEqualTo: 'super-admin').snapshots()!=null,
                     child: OverviewCards()),
                 Positioned(
                   top: -25,

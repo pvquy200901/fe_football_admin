@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../api/api.dart';
 import '../../config/style.dart';
 import '../../config/text.dart';
+import '../../controller/app_controller.dart';
 import '../../models/Team_model/team.dart';
 import '../../models/Team_model/team.dart';
 import '../../widget/dialog/dialog_detail_warning.dart';
@@ -41,6 +42,9 @@ class _TeamViewState extends State<TeamView> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    if(appController.token.isEmpty){
+      appController.getLoginData();
+    }
     loadingData();
   }
   @override
