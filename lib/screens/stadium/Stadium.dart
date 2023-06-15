@@ -1,11 +1,3 @@
-import 'package:fe_football_admin/main.dart';
-import 'package:fe_football_admin/screens/stadium/Stadium_Create.dart';
-import 'package:fe_football_admin/widget/customer/item_list_customer.dart';
-import 'package:fe_football_admin/widget/customer/nav_customer/nav_top_list_customer.dart';
-import 'package:fe_football_admin/widget/dashboard_widget/manager_centerNav.dart';
-import 'package:fe_football_admin/widget/dashboard_widget/total_value.dart';
-import 'package:fe_football_admin/widget/navigation/nav_leftBar.dart';
-import 'package:fe_football_admin/widget/stadium/item_list_stadium.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_admin_scaffold/admin_scaffold.dart';
 import 'package:flutter_format_money_vietnam/flutter_format_money_vietnam.dart';
@@ -18,7 +10,6 @@ import '../../config/style.dart';
 import '../../config/text.dart';
 import '../../controller/app_controller.dart';
 import '../../models/Stadium_model/Stadium.dart';
-import '../../widget/dialog/dialog_detail_warning.dart';
 import '../dashboard/sidebar.dart';
 import 'create_stadium.dart';
 import 'dialogCreateStadium.dart';
@@ -57,7 +48,7 @@ class _StadiumViewState extends State<StadiumView> {
 
   @override
   Widget build(BuildContext context) {
-    SideBarWidget _sideBar = SideBarWidget();
+    SideBarWidget sideBar = SideBarWidget();
     return AdminScaffold(
         appBar: AppBar(
           title: Row(
@@ -105,7 +96,7 @@ class _StadiumViewState extends State<StadiumView> {
           backgroundColor: light,
 
         ),
-        sideBar: _sideBar.SideBarMenus(context, '/listStadium'),
+        sideBar: sideBar.SideBarMenus(context, '/listStadium'),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Padding(
@@ -113,7 +104,7 @@ class _StadiumViewState extends State<StadiumView> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
+                SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: Card(
                     elevation: 5,
@@ -139,10 +130,10 @@ class _StadiumViewState extends State<StadiumView> {
                                     context: context,
                                     barrierDismissible: true,
                                     builder: (BuildContext cxt) {
-                                      return new createStadiumView();
+                                      return const createStadiumView();
                                     });
                               },
-                              child: Text(
+                              child: const Text(
                                 "Thêm sân bóng",
                                 style: TextStyle(
                                     color: Colors.blueAccent,
@@ -155,7 +146,7 @@ class _StadiumViewState extends State<StadiumView> {
                           const SizedBox(
                             height: 16,
                           ),
-                          Container(
+                          SizedBox(
                             width: MediaQuery.of(context).size.width,
                             child: DataTable(
                                 showBottomBorder: true,
@@ -163,7 +154,7 @@ class _StadiumViewState extends State<StadiumView> {
                                 headingRowColor: MaterialStateProperty.all(
                                   Colors.grey[200],
                                 ),
-                                columns: <DataColumn>[
+                                columns: const <DataColumn>[
                                   DataColumn(
                                     label: Text('STT'),
                                   ),
@@ -221,7 +212,7 @@ class _StadiumViewState extends State<StadiumView> {
                                                 context: context,
                                                 barrierDismissible: true,
                                                 builder: (BuildContext cxt) {
-                                                  return new EditInfoDialog(
+                                                  return EditInfoDialog(
                                                     name: e.name!,
                                                     address: e.address!,
                                                     contact: e.contact!,

@@ -38,13 +38,13 @@ class _DetailCustomerDialogState extends State<DetailCustomerDialog> {
 
   @override
   Widget build(BuildContext context) {
-    return (isLoading) ? CircularProgressIndicator():SingleChildScrollView(
+    return (isLoading) ? const CircularProgressIndicator():SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child: AlertDialog(
         //contentPadding: EdgeInsets.all(50),
-        title: Center(child: Text("Xem chi tiết")),
+        title: const Center(child: Text("Xem chi tiết")),
         content: Container(
-          margin: EdgeInsets.only(bottom: 10.0),
+          margin: const EdgeInsets.only(bottom: 10.0),
           width: double.infinity,
           decoration: BoxDecoration(
             /*border: Border(bottom: BorderSide(
@@ -54,19 +54,18 @@ class _DetailCustomerDialogState extends State<DetailCustomerDialog> {
             borderRadius: BorderRadius.circular(12.0),
           ),
           child: Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text( "Họ và tên: "+
-                    info.name!,
-                  style: TextStyle(
+                Text( "Họ và tên: ${info.name!}",
+                  style: const TextStyle(
                     fontSize: 18.0,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                SizedBox(height: 10,),
+                const SizedBox(height: 10,),
                 Center(
                   child: Container(
                     width: 300,
@@ -74,47 +73,42 @@ class _DetailCustomerDialogState extends State<DetailCustomerDialog> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8.0),
                       image: DecorationImage(
-                        image: (info.avatar!.isEmpty) ? NetworkImage("https://cdn-icons-png.flaticon.com/512/3607/3607444.png"):NetworkImage("http://localhost:50000/api/File/image/${info.avatar!}"),
+                        image: (info.avatar!.isEmpty) ? const NetworkImage("https://cdn-icons-png.flaticon.com/512/3607/3607444.png"):NetworkImage("http://localhost:50000/api/File/image/${info.avatar!}"),
                         fit: BoxFit.cover,
                       ),
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10.0,
                 ),
                 if (info.email != "")
-                  Text("Email: "+
-                      info.email!,
-                    style: TextStyle(color: Colors.black, fontSize: 16.0),
+                  Text("Email: ${info.email!}",
+                    style: const TextStyle(color: Colors.black, fontSize: 16.0),
                   ),
-                SizedBox(
+                const SizedBox(
                   height: 10.0,
                 ),
                 if (info.phone != "")
-                  Text("Số điện thoại: "+
-                      info.phone!,
-                    style: TextStyle(color: Colors.black, fontSize: 16.0),
+                  Text("Số điện thoại: ${info.phone!}",
+                    style: const TextStyle(color: Colors.black, fontSize: 16.0),
                   ),
 
-                SizedBox(
+                const SizedBox(
                   height: 10.0,
                 ),
                 info.team != ""?
-                  Text("Đội: "+
-                      info.team!,
-                    style: TextStyle(color: Colors.black, fontSize: 16.0),
-                  ): Text("Đội: "+
-                    "Chưa gia nhập đội bóng",
+                  Text("Đội: ${info.team!}",
+                    style: const TextStyle(color: Colors.black, fontSize: 16.0),
+                  ): const Text("Đội: ""Chưa gia nhập đội bóng",
                   style: TextStyle(color: Colors.black, fontSize: 16.0),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10.0,
                 ),
                 if (info.birthday != "")
-                  Text("Ngày sinh: "+
-                      info.birthday!,
-                    style: TextStyle(color: Colors.black, fontSize: 16.0),
+                  Text("Ngày sinh: ${info.birthday!}",
+                    style: const TextStyle(color: Colors.black, fontSize: 16.0),
                   ),
               ],
             ),
@@ -125,7 +119,7 @@ class _DetailCustomerDialogState extends State<DetailCustomerDialog> {
             onPressed: () {
               Navigator.of(context).pop();
             },
-            child: Text('OK'),
+            child: const Text('OK'),
           ),
         ],
       ),

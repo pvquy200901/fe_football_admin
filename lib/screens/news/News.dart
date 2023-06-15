@@ -8,7 +8,6 @@ import '../../config/style.dart';
 import '../../config/text.dart';
 import '../../controller/app_controller.dart';
 import '../../models/News_model/news.dart';
-import '../../widget/dialog/dialog_detail_warning.dart';
 import '../dashboard/sidebar.dart';
 import 'dialogDetailNews.dart';
 
@@ -49,13 +48,9 @@ class _NewsViewState extends State<NewsView> {
   }
   @override
   Widget build(BuildContext context) {
-    double _width = MediaQuery.of(context).size.width;
 
-    SideBarWidget _sideBar = SideBarWidget();
+    SideBarWidget sideBar = SideBarWidget();
 
-    bool cleared = false;
-
-    var data;
     return AdminScaffold(
         appBar: AppBar(
           title: Row(
@@ -133,7 +128,7 @@ class _NewsViewState extends State<NewsView> {
           backgroundColor: light,
 
         ),
-        sideBar: _sideBar.SideBarMenus(context, '/listNews'),
+        sideBar: sideBar.SideBarMenus(context, '/listNews'),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Padding(
@@ -141,7 +136,7 @@ class _NewsViewState extends State<NewsView> {
             child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
+                    SizedBox(
                       width: MediaQuery.of(context).size.width,
                       child: Card(
                         elevation: 5,
@@ -195,7 +190,7 @@ class _NewsViewState extends State<NewsView> {
                                         DataCell(Text(e.user!)),
                                         DataCell(
                                             ConstrainedBox(
-                                                constraints: BoxConstraints(maxWidth: 500), //SET max width
+                                                constraints: const BoxConstraints(maxWidth: 500), //SET max width
                                                 child: Text( e.title!,
                                                     overflow: TextOverflow.ellipsis))),
                                         DataCell(Text(e.createdTime!)),
@@ -241,7 +236,7 @@ class _NewsViewState extends State<NewsView> {
                       ),
                     ),
                     SizedBox(height: MediaQuery.of(context).size.height/10,),
-                    Container(
+                    SizedBox(
                       width: MediaQuery.of(context).size.width,
                       child: Card(
                         elevation: 5,
@@ -259,10 +254,10 @@ class _NewsViewState extends State<NewsView> {
                                   color: Colors.black,
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 16,
                               ),
-                              Container(
+                              SizedBox(
                                 width: MediaQuery.of(context).size.width,
                                 child: DataTable(
                                     columnSpacing: 120.0,
@@ -271,7 +266,8 @@ class _NewsViewState extends State<NewsView> {
                                     headingRowColor: MaterialStateProperty.all(
                                       Colors.grey[200],
                                     ),
-                                    columns: <DataColumn>[
+                                    columns: const <DataColumn>[
+
                                       DataColumn(
                                         label: Text('STT'),
                                       ),
@@ -294,7 +290,7 @@ class _NewsViewState extends State<NewsView> {
                                         DataCell(Text(i.toString())),
                                         DataCell(Text(e.user!)),
                                         DataCell(ConstrainedBox(
-                                            constraints: BoxConstraints(maxWidth: 500), //SET max width
+                                            constraints: const BoxConstraints(maxWidth: 500), //SET max width
                                             child: Text( e.title!,
                                                 overflow: TextOverflow.ellipsis))),
                                         DataCell(Text(e.createdTime!)),
@@ -308,7 +304,7 @@ class _NewsViewState extends State<NewsView> {
                                                     context: context,
                                                     barrierDismissible: true,
                                                     builder: (BuildContext cxt) {
-                                                      return new DetailNewsDialog(
+                                                      return DetailNewsDialog(
                                                         name: e.code!,
                                                       );
                                                     });

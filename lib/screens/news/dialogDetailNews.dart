@@ -24,7 +24,6 @@ class _DetailNewsDialogState extends State<DetailNewsDialog> {
         isLoading = true;
     });
     info = await api.getInfoNewsForAdmin(widget.name);
-    List<String> img = info.imagesNews!;
     setState(() {
       if(info.imagesNews!.isEmpty){
         img =["https://static.standard.co.uk/2022/03/15/19/2022-03-15T172625Z_1107313512_UP1EI3F1CFY2Q_RTRMADP_3_SOCCER-CHAMPIONS-MUN-ATM-REPORT.JPG?width=1200"];
@@ -44,31 +43,30 @@ class _DetailNewsDialogState extends State<DetailNewsDialog> {
 
   @override
   Widget build(BuildContext context) {
-    return (isLoading) ? CircularProgressIndicator():SingleChildScrollView(
+    return (isLoading) ? const CircularProgressIndicator():SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child: AlertDialog(
         //contentPadding: EdgeInsets.all(50),
-        title: Center(child: Text("Xem chi tiết")),
+        title: const Center(child: Text("Xem chi tiết")),
         content: Container(
-          margin: EdgeInsets.only(bottom: 10.0),
+          margin: const EdgeInsets.only(bottom: 10.0),
           width: double.infinity,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12.0),
           ),
           child: Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text( "Người đăng: "+
-                  info.user!,
-                  style: TextStyle(
+                Text( "Người đăng: ${info.user!}",
+                  style: const TextStyle(
                     fontSize: 18.0,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                SizedBox(height: 10,),
+                const SizedBox(height: 10,),
                 Center(
                   child: Container(
                     width: 500,
@@ -76,36 +74,34 @@ class _DetailNewsDialogState extends State<DetailNewsDialog> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8.0),
                       image: DecorationImage(
-                        image: (info.imagesNews!.isEmpty) ? NetworkImage("https://static.standard.co.uk/2022/03/15/19/2022-03-15T172625Z_1107313512_UP1EI3F1CFY2Q_RTRMADP_3_SOCCER-CHAMPIONS-MUN-ATM-REPORT.JPG?width=1200"):NetworkImage("http://localhost:50000/api/File/image/${info.imagesNews![0]}"),
+                        image: (info.imagesNews!.isEmpty) ? const NetworkImage("https://static.standard.co.uk/2022/03/15/19/2022-03-15T172625Z_1107313512_UP1EI3F1CFY2Q_RTRMADP_3_SOCCER-CHAMPIONS-MUN-ATM-REPORT.JPG?width=1200"):NetworkImage("http://localhost:50000/api/File/image/${info.imagesNews![0]}"),
                         fit: BoxFit.cover,
                       ),
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10.0,
                 ),
                 if (info.title != "")
-                  Text("Tiêu đề: "+
-                    info.title!,
-                    style: TextStyle(color: Colors.black, fontSize: 16.0),
+                  Text("Tiêu đề: ${info.title!}",
+                    style: const TextStyle(color: Colors.black, fontSize: 16.0),
                   ),
-                SizedBox(
+                const SizedBox(
                   height: 10.0,
                 ),
                 if (info.description != "")
-                  Text("Miêu tả: "+
-                      info.description!,
-                    style: TextStyle(color: Colors.black, fontSize: 16.0),
+                  Text("Miêu "
+                      "tả: ${info.description!}",
+                    style: const TextStyle(color: Colors.black, fontSize: 16.0),
                   ),
 
-                SizedBox(
+                const SizedBox(
                   height: 10.0,
                 ),
                 if (info.createdTime != "")
-                  Text("Thời gian: "+
-                      info.createdTime!,
-                    style: TextStyle(color: Colors.black, fontSize: 16.0),
+                  Text("Thời gian: ${info.createdTime!}",
+                    style: const TextStyle(color: Colors.black, fontSize: 16.0),
                   ),
               ],
             ),
@@ -116,7 +112,7 @@ class _DetailNewsDialogState extends State<DetailNewsDialog> {
             onPressed: () {
               Navigator.of(context).pop();
             },
-            child: Text('OK'),
+            child: const Text('OK'),
           ),
         ],
       ),

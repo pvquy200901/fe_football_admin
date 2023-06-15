@@ -1,24 +1,16 @@
-import 'package:fe_football_admin/main.dart';
-import 'package:fe_football_admin/widget/dashboard_widget/ban/violator_list.dart';
-import 'package:fe_football_admin/widget/dashboard_widget/manager_centerNav.dart';
-import 'package:fe_football_admin/widget/dashboard_widget/report/list_report.dart';
-import 'package:fe_football_admin/widget/dashboard_widget/top_team/top_team_order_list.dart';
-import 'package:fe_football_admin/widget/dashboard_widget/total_value.dart';
 import 'package:fe_football_admin/widget/navigation/nav_leftBar.dart';
 import 'package:fe_football_admin/widget/selling/list_stadium/SellListStadium.dart';
 import 'package:fe_football_admin/widget/selling/storage/ListFoodDrink.dart';
 import 'package:flutter/material.dart';
 
 import '../../widget/selling/info_sell_day.dart';
-import '../../widget/selling/storage/item_food_drink.dart';
-import '../../widget/stadium/order/details_myOrder.dart';
 
 class SellingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
               begin: Alignment.centerLeft,
               end: Alignment.bottomRight,
@@ -33,19 +25,19 @@ class SellingView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               LeftNavbar(),
-              Container(
+              SizedBox(
                 width: MediaQuery.of(context).size.width * 8.8 / 10,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [InfoSellday()],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
                     Container(
@@ -53,7 +45,7 @@ class SellingView extends StatelessWidget {
                       width: 1200,
                       color: Colors.white,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
                     Row(
@@ -63,13 +55,13 @@ class SellingView extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            SizedBox(
+                            const SizedBox(
                               width: 50,
                             ),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text(
+                                const Text(
                                   "Các sân đang thi đấu",
                                   style: TextStyle(
                                       color: Colors.white,
@@ -82,10 +74,10 @@ class SellingView extends StatelessWidget {
                                   width: 250,
                                   color: Colors.white,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 15,
                                 ),
-                                Container(
+                                SizedBox(
                                   height:
                                       MediaQuery.of(context).size.height / 3.5,
                                   child: SingleChildScrollView(
@@ -99,7 +91,7 @@ class SellingView extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 15,
                                 ),
                                 Container(
@@ -107,10 +99,10 @@ class SellingView extends StatelessWidget {
                                   width: 250,
                                   color: Colors.white,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 15,
                                 ),
-                                Text(
+                                const Text(
                                   "Đồ ăn thức uống",
                                   style: TextStyle(
                                       color: Colors.white,
@@ -123,10 +115,10 @@ class SellingView extends StatelessWidget {
                                   width: 250,
                                   color: Colors.white,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 15,
                                 ),
-                                Container(
+                                SizedBox(
                                   height:
                                       MediaQuery.of(context).size.height / 3.5,
                                   child: SingleChildScrollView(
@@ -140,7 +132,7 @@ class SellingView extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 15,
                                 ),
                                 Container(
@@ -158,7 +150,7 @@ class SellingView extends StatelessWidget {
                             Container(
                               height: MediaQuery.of(context).size.height / 1.5,
                               width: MediaQuery.of(context).size.width / 2.2,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: Color.fromARGB(255, 230, 218, 218),
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(10.0)),
@@ -167,18 +159,18 @@ class SellingView extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Text(
+                                  const Text(
                                     'Hóa đơn tính tiền',
                                     style: TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 5,
                                   ),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
+                                    children: const [
                                       SizedBox(
                                         width: 15,
                                       ),
@@ -204,7 +196,7 @@ class SellingView extends StatelessWidget {
                                   Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Container(
+                                      SizedBox(
                                         height:
                                             MediaQuery.of(context).size.height /
                                                 1.9,
@@ -225,8 +217,8 @@ class SellingView extends StatelessWidget {
                                                       crossAxisAlignment:
                                                           CrossAxisAlignment
                                                               .end,
-                                                      children: <Widget>[
-                                                        const Text(
+                                                      children: const <Widget>[
+                                                        Text(
                                                           "Ngày đặt sân:",
                                                           style: TextStyle(
                                                               color:
@@ -328,14 +320,14 @@ class SellingView extends StatelessWidget {
                                                                       .bold),
                                                         ),
                                                       ]),
-                                                  SizedBox(
+                                                  const SizedBox(
                                                     width: 50,
                                                   ),
                                                   Column(
                                                       crossAxisAlignment:
                                                           CrossAxisAlignment
                                                               .start,
-                                                      children: <Widget>[
+                                                      children: const <Widget>[
                                                         Text(
                                                           "06/07/2022",
                                                           style: TextStyle(
@@ -448,10 +440,10 @@ class SellingView extends StatelessWidget {
                                                       ]),
                                                 ],
                                               ),
-                                              SizedBox(
+                                              const SizedBox(
                                                 height: 5,
                                               ),
-                                              Text(
+                                              const Text(
                                                 "Dịch vụ đi kèm",
                                                 style: TextStyle(
                                                     color: Colors.black,
@@ -475,12 +467,11 @@ class SellingView extends StatelessWidget {
                                                                 MainAxisAlignment
                                                                     .center,
                                                             children: [
-                                                              Container(
+                                                              SizedBox(
                                                                 width: 30,
                                                                 child: Text(
-                                                                  ((i + 1).toString() +
-                                                                      "- "),
-                                                                  style: TextStyle(
+                                                                  ("${i + 1}- "),
+                                                                  style: const TextStyle(
                                                                       color: Colors
                                                                           .black,
                                                                       fontSize:
@@ -496,7 +487,7 @@ class SellingView extends StatelessWidget {
                                                                         .center,
                                                                 children: <
                                                                     Widget>[
-                                                                  Container(
+                                                                  const SizedBox(
                                                                     width: 75,
                                                                     child: Text(
                                                                       "Number 1",
@@ -509,10 +500,10 @@ class SellingView extends StatelessWidget {
                                                                               FontStyle.normal),
                                                                     ),
                                                                   ),
-                                                                  SizedBox(
+                                                                  const SizedBox(
                                                                     width: 15,
                                                                   ),
-                                                                  Container(
+                                                                  const SizedBox(
                                                                     width: 20,
                                                                     child: Text(
                                                                       "55",
@@ -525,10 +516,10 @@ class SellingView extends StatelessWidget {
                                                                               FontStyle.normal),
                                                                     ),
                                                                   ),
-                                                                  SizedBox(
+                                                                  const SizedBox(
                                                                     width: 15,
                                                                   ),
-                                                                  Container(
+                                                                  const SizedBox(
                                                                     width: 100,
                                                                     child: Text(
                                                                       "15.000d/chai",
@@ -548,7 +539,7 @@ class SellingView extends StatelessWidget {
                                                                       //   return new StadiumEditView();
                                                                       // }));
                                                                     },
-                                                                    child: Icon(
+                                                                    child: const Icon(
                                                                         Icons
                                                                             .delete),
                                                                   ),
@@ -570,13 +561,13 @@ class SellingView extends StatelessWidget {
                                           ),
                                         ),
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 15,
                                       ),
                                       Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
-                                        children: [
+                                        children: const [
                                           Text(
                                             "Tổng hóa đơn: ",
                                             style: TextStyle(
@@ -598,13 +589,13 @@ class SellingView extends StatelessWidget {
                                       ),
                                     ],
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 5,
                                   ),
                                 ],
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 15,
                             ),
                             Row(
@@ -612,7 +603,7 @@ class SellingView extends StatelessWidget {
                               children: [
                                 MaterialButton(
                                   color: Colors.blue,
-                                  shape: RoundedRectangleBorder(
+                                  shape: const RoundedRectangleBorder(
                                       borderRadius: BorderRadius.all(
                                           Radius.circular(20.0))),
                                   onPressed: () {
@@ -623,8 +614,8 @@ class SellingView extends StatelessWidget {
                                     //       return new DialogStadiumDelete();
                                     //     });
                                   },
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
+                                  child: const Padding(
+                                    padding: EdgeInsets.symmetric(
                                         vertical: 0.0, horizontal: 0.0),
                                     child: Text(
                                       "Thanh toán",

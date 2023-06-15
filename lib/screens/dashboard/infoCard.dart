@@ -15,7 +15,7 @@ class InfoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _height = MediaQuery.of(context).size.height;
+    final height = MediaQuery.of(context).size.height;
     return Expanded(
       child: Container(
         height: 136,
@@ -24,7 +24,7 @@ class InfoCard extends StatelessWidget {
           color: Colors.white,
           boxShadow: [
             BoxShadow(
-                offset: Offset(0, 6),
+                offset: const Offset(0, 6),
                 color: lightgrey.withOpacity(.1),
                 blurRadius: 12
             )
@@ -46,22 +46,22 @@ class InfoCard extends StatelessWidget {
                       ) ,)
                     ],),
 
-                  SizedBox(height: _height * .03,),
+                  SizedBox(height: height * .03,),
                   RichText(
                       textDirection: TextDirection.rtl,
-                      strutStyle: StrutStyle(
+                      strutStyle: const StrutStyle(
                           fontSize: 18,
                           height: 1.5
                       ),
                       maxLines: 2,
-                      textHeightBehavior: TextHeightBehavior(
+                      textHeightBehavior: const TextHeightBehavior(
                           applyHeightToFirstAscent: true,
                           applyHeightToLastDescent: true
 
                       ),
                       textScaleFactor: 1.2,
                       textWidthBasis: TextWidthBasis.longestLine,
-                      locale: Locale('ar'),
+                      locale: const Locale('ar'),
                       textAlign: TextAlign.center,
 
 
@@ -117,7 +117,7 @@ class WaveClipper extends CustomClipper<Path>{
   @override
   Path getClip(Size size) {
 
-    var path = new Path();
+    var path = Path();
     path.lineTo(0, size.height); //start path with this if you are making at bottom
 
     var firstStart = Offset(size.width / 5, size.height);

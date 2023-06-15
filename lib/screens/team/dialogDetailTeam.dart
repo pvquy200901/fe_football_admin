@@ -2,9 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 import '../../api/api.dart';
-import '../../models/News_model/news.dart';
 import '../../models/Team_model/team.dart';
-import '../../models/User_model/User.dart';
 
 class DetailTeamDialog extends StatefulWidget {
   final String team;
@@ -36,9 +34,9 @@ class _DetailTeamDialogState extends State<DetailTeamDialog> {
       }
       imageSliders = imgList
           .map((item) => Container(
-                margin: EdgeInsets.all(5.0),
+                margin: const EdgeInsets.all(5.0),
                 child: ClipRRect(
-                    borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                    borderRadius: const BorderRadius.all(Radius.circular(5.0)),
                     child: Stack(
                       children: <Widget>[
                         Image.network(
@@ -61,8 +59,8 @@ class _DetailTeamDialogState extends State<DetailTeamDialog> {
 
   @override
   Widget build(BuildContext context) {
-    return (isLoading)?CircularProgressIndicator(): AlertDialog(
-      title: Center(child: Text("Xem chi tiết")),
+    return (isLoading)?const CircularProgressIndicator(): AlertDialog(
+      title: const Center(child: Text("Xem chi tiết")),
       content: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -74,7 +72,7 @@ class _DetailTeamDialogState extends State<DetailTeamDialog> {
               fontWeight: FontWeight.w600,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Expanded(
@@ -93,41 +91,37 @@ class _DetailTeamDialogState extends State<DetailTeamDialog> {
             ),
           ),
 
-          SizedBox(
+          const SizedBox(
             height: 10.0,
           ),
           if (info.name != "")
-            Text("Tên đội: "+
-                info.name!,
-              style: TextStyle(color: Colors.black, fontSize: 16.0),
+            Text("Tên đội: ${info.name!}",
+              style: const TextStyle(color: Colors.black, fontSize: 16.0),
             ),
-          SizedBox(
+          const SizedBox(
             height: 10.0,
           ),
           if (info.phone != "")
-            Text("Số điện thoại: "+
-                info.phone!,
-              style: TextStyle(color: Colors.black, fontSize: 16.0),
+            Text("Số điện thoại: ${info.phone!}",
+              style: const TextStyle(color: Colors.black, fontSize: 16.0),
             ),
 
-          SizedBox(
+          const SizedBox(
             height: 10.0,
           ),
           info.phone != ""?
-          Text("Địa chỉ: "+
-              info.address!,
-            style: TextStyle(color: Colors.black, fontSize: 16.0),
-          ): Text("Địa chỉ: "+
+          Text("Địa chỉ: ${info.address!}",
+            style: const TextStyle(color: Colors.black, fontSize: 16.0),
+          ): const Text("Địa chỉ: "+
               "Không có",
             style: TextStyle(color: Colors.black, fontSize: 16.0),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10.0,
           ),
           if (info.quality != "")
-            Text("Số lượng: "+
-                info.quality.toString(),
-              style: TextStyle(color: Colors.black, fontSize: 16.0),
+            Text("Số lượng: ${info.quality}",
+              style: const TextStyle(color: Colors.black, fontSize: 16.0),
             ),
         ],
       ),
@@ -136,7 +130,7 @@ class _DetailTeamDialogState extends State<DetailTeamDialog> {
           onPressed: () {
             Navigator.of(context).pop();
           },
-          child: Text('OK'),
+          child: const Text('OK'),
         ),
       ],
     ) ;

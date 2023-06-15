@@ -61,9 +61,9 @@ class _OverviewCardsState extends State<OverviewCards> {
 
   @override
   Widget build(BuildContext context) {
-    double _width = MediaQuery.of(context).size.width;
+    double width = MediaQuery.of(context).size.width;
     return isLoading
-        ? Container(
+        ? const SizedBox(
       width: 100,
       height: 100,
       child: Center(
@@ -74,7 +74,7 @@ class _OverviewCardsState extends State<OverviewCards> {
     )
         : Column(
       children: [
-        Container(
+        SizedBox(
           height: MediaQuery.of(context).size.height / 1.5,
           width: MediaQuery.of(context).size.width,
           child: Card(
@@ -95,7 +95,7 @@ class _OverviewCardsState extends State<OverviewCards> {
                         color: Colors.black,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Row(
@@ -108,7 +108,7 @@ class _OverviewCardsState extends State<OverviewCards> {
                           topColor: Colors.blue,
                         ),
                         SizedBox(
-                          width: _width / 64,
+                          width: width / 64,
                         ),
                         InfoCard(
                           bezierCOlor: Colors.blue,
@@ -118,7 +118,7 @@ class _OverviewCardsState extends State<OverviewCards> {
                           topColor: Colors.blue,
                         ),
                         SizedBox(
-                          width: _width / 64,
+                          width: width / 64,
                         ),
                         InfoCard(
                           bezierCOlor: Colors.blue,
@@ -129,7 +129,7 @@ class _OverviewCardsState extends State<OverviewCards> {
                         ),
                         // St
                         SizedBox(
-                          width: _width / 64,
+                          width: width / 64,
                         ),
                         InfoCard(
                           bezierCOlor: Colors.blue,
@@ -153,7 +153,7 @@ class _OverviewCardsState extends State<OverviewCards> {
                           topColor: Colors.blue,
                         ),
                         SizedBox(
-                          width: _width / 64,
+                          width: width / 64,
                         ),
                         InfoCard(
                           bezierCOlor: Colors.blue,
@@ -163,7 +163,7 @@ class _OverviewCardsState extends State<OverviewCards> {
                           topColor: Colors.blue,
                         ),
                         SizedBox(
-                          width: _width / 64,
+                          width: width / 64,
                         ),
                         InfoCard(
                           bezierCOlor: Colors.blue,
@@ -183,7 +183,7 @@ class _OverviewCardsState extends State<OverviewCards> {
         SizedBox(
           height: MediaQuery.of(context).size.height / 15,
         ),
-        Container(
+        SizedBox(
           height: MediaQuery.of(context).size.height / 1.5,
           width: MediaQuery.of(context).size.width,
           child: Card(
@@ -207,9 +207,9 @@ class _OverviewCardsState extends State<OverviewCards> {
                     height: MediaQuery.of(context).size.height / 30,
                   ),
                   Center(
-                    child: Container(
+                    child: SizedBox(
                       width: MediaQuery.of(context).size.width,
-                      child: DataTable(columns: [
+                      child: DataTable(columns: const [
                         DataColumn(
                             label: Text('STT',
                                 style: TextStyle(
@@ -337,7 +337,7 @@ class _OverviewCardsState extends State<OverviewCards> {
         SizedBox(
           height: MediaQuery.of(context).size.height / 15,
         ),
-        Container(
+        SizedBox(
           height: MediaQuery.of(context).size.height / 1.5,
           width: MediaQuery.of(context).size.width,
           child: Card(
@@ -361,9 +361,10 @@ class _OverviewCardsState extends State<OverviewCards> {
                     height: MediaQuery.of(context).size.height / 30,
                   ),
                   Center(
-                    child: Container(
+                    child: SizedBox(
                       width: MediaQuery.of(context).size.width,
-                      child: DataTable(columns: [
+                      child: DataTable(columns: const [
+
                         DataColumn(
                             label: Text('STT',
                                 style: TextStyle(
@@ -402,10 +403,10 @@ class _OverviewCardsState extends State<OverviewCards> {
                                     context: context,
                                     barrierDismissible: true,
                                     builder: (BuildContext cxt) {
-                                      return new DialogConfirmBan();
+                                      return DialogConfirmBan();
                                     });
                               },
-                              child: Text(
+                              child: const Text(
                                 "Cấm",
                                 style: TextStyle(
                                     color: Colors.red,
@@ -420,13 +421,13 @@ class _OverviewCardsState extends State<OverviewCards> {
                                     context: context,
                                     barrierDismissible: true,
                                     builder: (BuildContext cxt) {
-                                      return new DialogConfirmWarning(
+                                      return DialogConfirmWarning(
                                         email: e.email!,
                                         name: e.name!,
                                       );
                                     });
                               },
-                              child: Text(
+                              child: const Text(
                                 "Cảnh cáo",
                                 style: TextStyle(
                                     color: Colors.orange,

@@ -23,7 +23,7 @@ class DashboardView extends StatefulWidget {
 }
 class _DashboardViewState extends State<DashboardView> {
 
-  SideBarWidget _sideBarWidget = SideBarWidget();
+  final SideBarWidget _sideBarWidget = SideBarWidget();
   bool _isContainerVisible = false;
 
   @override
@@ -104,7 +104,7 @@ class _DashboardViewState extends State<DashboardView> {
             padding: const EdgeInsets.all(10.0),
             child: Stack(
               children: <Widget>[
-                Visibility(
+                const Visibility(
                     child: OverviewCards()),
                 Positioned(
                   top: -25,
@@ -112,8 +112,8 @@ class _DashboardViewState extends State<DashboardView> {
                   child: Visibility(
                   visible: _isContainerVisible,
                   child: Container(
-                    margin: EdgeInsets.all(20.0),
-                    padding: EdgeInsets.all(10.0),
+                    margin: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(10.0),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       boxShadow: [
@@ -121,13 +121,13 @@ class _DashboardViewState extends State<DashboardView> {
                           color: Colors.grey.withOpacity(0.5),
                           spreadRadius: 2,
                           blurRadius: 5,
-                          offset: Offset(0, 3),
+                          offset: const Offset(0, 3),
                         ),
                       ],
                     ),
                     child: TextButton(onPressed: () =>{
 
-                    }, child: Text(
+                    }, child: const Text(
                       "Đăng xuất",
                       style: TextStyle(
                         fontSize: 15

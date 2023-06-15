@@ -54,7 +54,7 @@ class _EditInfoDialogState extends State<EditInfoDialog> {
     });
 
     setState(() {
-      if (widget.images.length == 0) {
+      if (widget.images.isEmpty) {
         imgList = [
           "https://images2.thanhnien.vn/Uploaded/taynguyen/2022_03_16/oldtrafford-afp-3474.jpeg"
         ];
@@ -63,13 +63,13 @@ class _EditInfoDialogState extends State<EditInfoDialog> {
       }
       imageSliders = imgList
           .map((item) => Container(
-                margin: EdgeInsets.all(5.0),
+                margin: const EdgeInsets.all(5.0),
                 child: ClipRRect(
-                    borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                    borderRadius: const BorderRadius.all(Radius.circular(5.0)),
                     child: Stack(
                       children: <Widget>[
                         Image.network(
-                    (widget.images.length == 0)?"https://images2.thanhnien.vn/Uploaded/taynguyen/2022_03_16/oldtrafford-afp-3474.jpeg":"http://localhost:50000/api/File/image/$item",
+                    (widget.images.isEmpty)?"https://images2.thanhnien.vn/Uploaded/taynguyen/2022_03_16/oldtrafford-afp-3474.jpeg":"http://localhost:50000/api/File/image/$item",
                             fit: BoxFit.cover,
                             width: 1000.0),
                         Positioned(
@@ -123,7 +123,7 @@ class _EditInfoDialogState extends State<EditInfoDialog> {
                 children: [
                   TextFormField(
                     controller: _addressController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Địa chỉ',
                     ),
                   ),
@@ -151,13 +151,13 @@ class _EditInfoDialogState extends State<EditInfoDialog> {
           ),
           TextFormField(
             controller: _contactController,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Liên hệ',
             ),
           ),
           TextFormField(
             controller: _priceController,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Giá',
             ),
           ),
@@ -202,7 +202,7 @@ class _EditInfoDialogState extends State<EditInfoDialog> {
           onPressed: () {
             Navigator.of(context).pop();
           },
-          child: Text('Hủy bỏ'),
+          child: const Text('Hủy bỏ'),
         ),
         ElevatedButton(
           onPressed: () {

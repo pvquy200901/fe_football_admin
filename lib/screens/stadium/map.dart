@@ -15,7 +15,7 @@ class _MapPickerWidgetState extends State<MapPickerWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Chọn địa điểm'),
+        title: const Text('Chọn địa điểm'),
       ),
       body: FlutterMap(
         mapController: mapController,
@@ -39,7 +39,7 @@ class _MapPickerWidgetState extends State<MapPickerWidget> {
               if (pickedLocation != null)
                 Marker(
                   point: pickedLocation!,
-                  builder: (ctx) => Icon(Icons.location_pin),
+                  builder: (ctx) => const Icon(Icons.location_pin),
                 ),
             ],
           ),
@@ -51,7 +51,7 @@ class _MapPickerWidgetState extends State<MapPickerWidget> {
             Navigator.of(context).pop(pickedLocation);
           }
         },
-        child: Icon(Icons.check),
+        child: const Icon(Icons.check),
       ),
     );
   }

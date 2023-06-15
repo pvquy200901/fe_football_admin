@@ -46,7 +46,7 @@ class _CustomerViewState extends State<CustomerView> {
   }
   @override
   Widget build(BuildContext context) {
-    SideBarWidget _sideBar = SideBarWidget();
+    SideBarWidget sideBar = SideBarWidget();
 
     return AdminScaffold(
       appBar: AppBar(
@@ -99,7 +99,7 @@ class _CustomerViewState extends State<CustomerView> {
         backgroundColor: light,
 
       ),
-      sideBar: _sideBar.SideBarMenus(context, '/listUser'),
+      sideBar: sideBar.SideBarMenus(context, '/listUser'),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Padding(
@@ -107,7 +107,7 @@ class _CustomerViewState extends State<CustomerView> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
+                SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: Card(
                     elevation: 5,
@@ -125,10 +125,10 @@ class _CustomerViewState extends State<CustomerView> {
                               color: Colors.black,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 16,
                           ),
-                          Container(
+                          SizedBox(
                               width: MediaQuery.of(context).size.width,
                               child: DataTable(
                                   showBottomBorder: true,
@@ -136,7 +136,7 @@ class _CustomerViewState extends State<CustomerView> {
                                   headingRowColor: MaterialStateProperty.all(
                                     Colors.grey[200],
                                   ),
-                                  columns: <DataColumn>[
+                                  columns: const <DataColumn>[
                                     DataColumn(
                                       label: Text('STT'),
                                     ),
@@ -175,7 +175,7 @@ class _CustomerViewState extends State<CustomerView> {
                                                   context: context,
                                                   barrierDismissible: true,
                                                   builder: (BuildContext cxt) {
-                                                    return new DetailCustomerDialog(
+                                                    return DetailCustomerDialog(
                                                      username: e.username!,
                                                     );
                                                   });

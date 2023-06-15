@@ -13,11 +13,11 @@ class SideBarWidget{
         color: Colors.grey[700],
         fontSize: 13,
       ),
-      activeTextStyle: TextStyle(
+      activeTextStyle: const TextStyle(
         color: Colors.white,
       ),
       // backgroundColor: Colors.black54,
-      items: [
+      items: const [
         AdminMenuItem(
           title: 'Thống kê',
           route: '/dashboardView',

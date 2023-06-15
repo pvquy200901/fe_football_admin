@@ -1,9 +1,7 @@
 import 'package:fe_football_admin/config/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_admin_scaffold/admin_scaffold.dart';
-import 'package:flutter_format_money_vietnam/flutter_format_money_vietnam.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -53,7 +51,7 @@ class _createStadiumViewState extends State<createStadiumView> {
 
   @override
   Widget build(BuildContext context) {
-    SideBarWidget _sideBar = SideBarWidget();
+    SideBarWidget sideBar = SideBarWidget();
     return AdminScaffold(
         appBar: AppBar(
           title: Row(
@@ -101,14 +99,14 @@ class _createStadiumViewState extends State<createStadiumView> {
           backgroundColor: light,
 
         ),
-        sideBar: _sideBar.SideBarMenus(context, '/listStadium'),
+        sideBar: sideBar.SideBarMenus(context, '/listStadium'),
         body: Column(
           children: [
             Form(
               child: Column(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
+                  const Padding(
+                    padding: EdgeInsets.all(8.0),
                     child: Text(
                       "Thêm sân bóng",
                       style: TextStyle(
@@ -127,13 +125,13 @@ class _createStadiumViewState extends State<createStadiumView> {
                     },
                     decoration: InputDecoration(
                       labelText: 'Tên sân',
-                      prefixIcon: Icon(Icons.person),
+                      prefixIcon: const Icon(Icons.person),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
                   ).margin9,
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Row(
                     children: [
                       Expanded(
@@ -149,7 +147,7 @@ class _createStadiumViewState extends State<createStadiumView> {
                                 },
                                 decoration: InputDecoration(
                                   labelText: 'Địa chỉ',
-                                  prefixIcon: Icon(Icons.person),
+                                  prefixIcon: const Icon(Icons.person),
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10),
                                   ),
@@ -178,7 +176,7 @@ class _createStadiumViewState extends State<createStadiumView> {
                     ],
                   ),
 
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   TextFormField(
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -189,13 +187,13 @@ class _createStadiumViewState extends State<createStadiumView> {
                     controller: _contact,
                     decoration: InputDecoration(
                       labelText: 'Số điện thoại',
-                      prefixIcon: Icon(Icons.mail_outline_sharp),
+                      prefixIcon: const Icon(Icons.mail_outline_sharp),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
                   ).margin9,
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   TextFormField(
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -206,19 +204,19 @@ class _createStadiumViewState extends State<createStadiumView> {
                     controller: _price,
                     decoration: InputDecoration(
                       labelText: 'Giá tiền',
-                      prefixIcon: Icon(Icons.search),
+                      prefixIcon: const Icon(Icons.search),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
                   ).margin9,
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                 ],
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Container(
+              child: SizedBox(
                 width: MediaQuery.of(context).size.width,
                 height: 40,
                 child: ButtonTheme(
@@ -262,7 +260,7 @@ class _createStadiumViewState extends State<createStadiumView> {
                       });
 
                     },
-                    child: Text(
+                    child: const Text(
                       'Thêm',
                       style: TextStyle(
                         color: Colors.white,

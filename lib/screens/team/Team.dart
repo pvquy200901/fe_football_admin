@@ -1,7 +1,6 @@
 import 'package:fe_football_admin/screens/team/dialogDetailTeam.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_admin_scaffold/admin_scaffold.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../api/api.dart';
@@ -9,8 +8,6 @@ import '../../config/style.dart';
 import '../../config/text.dart';
 import '../../controller/app_controller.dart';
 import '../../models/Team_model/team.dart';
-import '../../models/Team_model/team.dart';
-import '../../widget/dialog/dialog_detail_warning.dart';
 import '../../widget/dialog/dialog_team_delete.dart';
 import '../dashboard/sidebar.dart';
 
@@ -49,7 +46,7 @@ class _TeamViewState extends State<TeamView> {
   }
   @override
   Widget build(BuildContext context) {
-    SideBarWidget _sideBar = SideBarWidget();
+    SideBarWidget sideBar = SideBarWidget();
 
     return AdminScaffold(
       appBar: AppBar(
@@ -97,7 +94,7 @@ class _TeamViewState extends State<TeamView> {
         ),
         backgroundColor: light,
       ),
-      sideBar: _sideBar.SideBarMenus(context, '/listTeam'),
+      sideBar: sideBar.SideBarMenus(context, '/listTeam'),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Padding(
@@ -105,7 +102,7 @@ class _TeamViewState extends State<TeamView> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
+                SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: Card(
                     elevation: 5,
@@ -124,10 +121,10 @@ class _TeamViewState extends State<TeamView> {
                               color: Colors.black,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 16,
                           ),
-                          Container(
+                          SizedBox(
                               width: MediaQuery.of(context).size.width,
                               child: DataTable(
                                   showBottomBorder: true,
@@ -135,7 +132,7 @@ class _TeamViewState extends State<TeamView> {
                                   headingRowColor: MaterialStateProperty.all(
                                     Colors.grey[200],
                                   ),
-                                  columns: <DataColumn>[
+                                  columns: const <DataColumn>[
                                     DataColumn(
                                       label: Text('STT'),
                                     ),
@@ -187,7 +184,7 @@ class _TeamViewState extends State<TeamView> {
                                                   context: context,
                                                   barrierDismissible: true,
                                                   builder: (BuildContext cxt) {
-                                                    return new DetailTeamDialog(
+                                                    return DetailTeamDialog(
                                                       team: e.name!,
                                                     );
                                                   });
@@ -201,7 +198,7 @@ class _TeamViewState extends State<TeamView> {
                                                   context: context,
                                                   barrierDismissible: true,
                                                   builder: (BuildContext cxt) {
-                                                    return new DialogTeamDelete(
+                                                    return DialogTeamDelete(
                                                       team: e.name!,
                                                     );
                                                   });
